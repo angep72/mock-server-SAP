@@ -122,12 +122,69 @@
                     change="validateInputCity"
                 />
             </VBox>
-			<beginButton>
-			<Button text="{i18n>creatingDialogSaveButtonText}" press="onSave" />
-			</beginButton>
-			<endButton>
-			<Button text="{i18n>creatingDialogCancelButtonText}" press="onCancel" />
-			</endButton>
+            <beginButton>
+                <Button
+                    text="{i18n>creatingDialogSaveButtonText}"
+                    press="onSaveNewUser"
+                />
+            </beginButton>
+            <endButton>
+                <Button
+                    text="{i18n>creatingDialogCancelButtonText}"
+                    press="onCancelNewUser"
+                />
+            </endButton>
+        </Dialog>
+        <Dialog
+            id="updatingDialog"
+            title="{i18n>updatingDialogTitle}"
+            class="sapUiContentPadding"
+        >
+            <VBox>
+                <Label text="{i18n>updatingDialogIdLabel}" />
+                <Input
+                    id="updating-id"
+                    type="Number"
+                    valueStateText="{i18n>updatingDialogIdValueStateText}"
+                    change="validateInputId"
+                />
+                <Label text="{i18n>updatingDialogNameLabel}" />
+                <Input
+                    id="updating-name"
+                    valueStateText="{i18n>updatingDialogNameValueStateText}"
+                    change="validateInputName"
+                />
+                <Label text="{i18n>updatingDialogEmailLabel}" />
+                <Input
+                    id="updating-email"
+                    valueStateText="{i18n>updatingDialogEmailValueStateText}"
+                    change="validateInputEmail"
+                />
+                <Label text="{i18n>updatingDialogAddressLabel}" />
+                <Input
+                    id="updating-address"
+                    valueStateText="{i18n>updatingDialogAddressValueStateText}"
+                    change="validateInputAddress"
+                />
+                <Label text="{i18n>updatingDialogCityLabel}" />
+                <Input
+                    id="updating-city"
+                    valueStateText="{i18n>updatingDialogCityValueStateText}"
+                    change="validateInputCity"
+                />
+            </VBox>
+            <beginButton>
+                <Button
+                    text="{i18n>updatingDialogSaveButtonText}"
+                    press="onSaveUpdatedUser"
+                />
+            </beginButton>
+            <endButton>
+                <Button
+                    text="{i18n>updatingDialogCancelButtonText}"
+                    press="onCancelUpdatedUser"
+                />
+            </endButton>
         </Dialog>
     </Page>
 </mvc:View>
