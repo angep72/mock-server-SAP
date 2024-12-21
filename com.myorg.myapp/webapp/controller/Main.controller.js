@@ -54,15 +54,41 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 				MessageToast.show("Error adding user");
 			});
 		},
-		onDelete:function(oEvent){
+		onDelete: function(oEvent) {
 			var oItem = oEvent.getSource();
 			var oCtx = oItem.getBindingContext();
 			var sPath = oCtx.getPath();
 			var oModel = this.getView().getModel();
 			var aData = oModel.getProperty("/users");
-			aData.splice(sPath, 1);
-			oModel.setProperty("/users", aData);
-			oModel.updateBindings();
+
+			// Create a confirmation dialog
+			var oDialog = new sap.m.Dialog({
+				title: 'Confirm',
+				type: 'Message',
+				content: new sap.m.Text({ text: 'Do you want to delete this user?' }),
+				beginButton: new sap.m.Button({
+					text: 'Delete',
+					press: function () {
+						// Delete the user
+						aData.splice(sPath.substring(sPath.lastIndexOf('/') + 1), 1);
+						oModel.setProperty("/users", aData);
+						oModel.updateBindings();
+						oDialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: 'Cancel',
+					press: function () {
+						oDialog.close();
+					}
+				}),
+				afterClose: function() {
+					oDialog.destroy();
+				}
+			});
+
+			// Open the dialog
+			oDialog.open();
 		},
 	});
 })
