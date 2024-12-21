@@ -32,6 +32,7 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			const ID = this.byId("creating-id").getValue();
 			const Name = this.byId("creating-name").getValue();
 			const email = this.byId("creating-email").getValue();
+			const address = this.byId("creating-address").getValue();
 		}
 	});
 })
