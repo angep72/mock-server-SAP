@@ -61,7 +61,16 @@
 		<Text text="{email}"/>
 		<Text text="{address/street}"/>
 		<Text text="{address/city}"/>
-		<Button icon="sap-icon://edit" press="onEdit"/>
+		<HBox>
+		<Button
+			icon="sap-icon://edit"
+			press="onEdit"
+			type="Transparent"/>
+			<Button
+				icon="sap-icon://delete"
+				press="onDelete"
+				type="Transparent"/>
+		</HBox>
 		</cells>
 		</ColumnListItem>
 		</items>
