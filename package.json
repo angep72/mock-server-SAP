@@ -1,4 +1,11 @@
 {
+    "name": "ui5.walkthrough",
+    "version": "1.0.0",
+    "description": "The UI5 walkthrough application",
+    "scripts": {
+        "start": "ui5 serve -o index.html"
+    },
+  
   "dependencies": {
     "express": "^4.21.2",
     "nodemon": "^3.1.9"
