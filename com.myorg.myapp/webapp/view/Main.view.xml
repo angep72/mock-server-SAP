@@ -17,6 +17,15 @@
 		<headerToolbar>
 		<Toolbar>
 		<Title text="{i18n>suppliersTitle}"/>
+		<ToolbarSpacer />
+		<SearchField
+			placeholder="{i18n>searchPlaceholder}"
+			search="onSearch"
+			width="50%"/>
+			<Button
+				icon="sap-icon://add"
+				press="onAdd"
+				text="{i18n>addButtonText}"/>
 		</Toolbar>
 		</headerToolbar>
 		
