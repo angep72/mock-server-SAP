@@ -57,6 +57,11 @@
 		<ColumnListItem>
 		<cells>
 		<Text text="{id}"/>
+		<Text text="{name}"/>
+		<Text text="{email}"/>
+		<Text text="{address/street}"/>
+		<Text text="{address/city}"/>
+		<Button icon="sap-icon://edit" press="onEdit"/>
 		</cells>
 		</ColumnListItem>
 		</items>
