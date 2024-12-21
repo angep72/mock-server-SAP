@@ -41,10 +41,12 @@ app.get('/data', (req, res) => {
     });
 });
 //Route t0 update user
+
 app.put('/update-user/:id', (req, res) => {
-  const userId = req.params.id;
+  const userId = parseInt(req.params.id, 10); // Ensure userId is a number
   const updatedUser = req.body;
-  fs.readFile(path.join(__dirname,'data.json'), 'utf8', (err, data) => {
+
+  fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
     if (err) {
       console.error('Error reading file:', err);
       res.status(500).json({ message: 'Error reading data file' });
@@ -57,7 +59,7 @@ app.put('/update-user/:id', (req, res) => {
         res.status(404).json({ message: 'User not found' });
         return;
       }
-      jsonData.users[userIndex] = updatedUser;
+      jsonData.users[userIndex] = { ...jsonData.users[userIndex], ...updatedUser }; // Merge existing user data with updated data
       fs.writeFile(
         path.join(__dirname, 'data.json'),
         JSON.stringify(jsonData, null, 2),
@@ -75,8 +77,7 @@ app.put('/update-user/:id', (req, res) => {
       res.status(500).json({ message: 'Error parsing JSON data' });
     }
   });
-  
-})
+});
     // Read the existing data from the JSON file
 // Route to add a user to the JSON file (POST request)
 app.post('/add-user', (req, res) => {
