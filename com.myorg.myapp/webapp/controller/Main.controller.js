@@ -91,10 +91,12 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			oDialog.open();
 		},
 		onEdit:function(oEvent){
-			var oItem = oEvent.getSource();
-			var oCtx = oItem.getBindingContext();
-			this.byId("updatingDialog").setBindingContext(oCtx);
-			this.byId("updatingDialog").open();
+			const button = oEvent.getSource();
+			const listItem = button.getParent();
+			const context = listItem.getBindingContext();
+			const userData = context.getObject();
+			this._selectedUserId = userData.id;
+			const dialog = this.byId("updatingDialog");
 		},
 	});
 })
