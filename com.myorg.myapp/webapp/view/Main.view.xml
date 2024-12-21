@@ -21,7 +21,7 @@
 		<SearchField
 			placeholder="{i18n>searchPlaceholder}"
 			search="onSearch"
-			width="50%"/>
+			width="30%"/>
 			<Button
 				icon="sap-icon://add"
 				press="onAdd"
