@@ -123,10 +123,10 @@
                 />
             </VBox>
 			<beginButton>
-			<Button text="{i18n>creatingDialogSaveButtonText}" press="onSave" />
+			<Button text="{i18n>creatingDialogSaveButtonText}" press="onSaveNewUser" />
 			</beginButton>
 			<endButton>
-			<Button text="{i18n>creatingDialogCancelButtonText}" press="onCancel" />
+			<Button text="{i18n>creatingDialogCancelButtonText}" press="onCancelNewUser" />
 			</endButton>
         </Dialog>
     </Page>
