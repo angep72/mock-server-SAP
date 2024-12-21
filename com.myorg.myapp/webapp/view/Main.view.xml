@@ -37,6 +37,9 @@
 		<Column >
 		<Text text="{i18n>supplierID}" />
 		</Column>
+		<Column>
+		<Text text="{i18n>UsersName}"/>
+		</Column>
 		</columns>
 		</Table>
 		</content>
