@@ -13,7 +13,7 @@
         id="page"
     >
         <content>
-		<Table id="suppliers"  mode="SingleSelectMaster" selectionChange="onSelectionChange">
+		<Table id="suppliers" items="{/users}">
 		<headerToolbar>
 		<Toolbar>
 		<Title text="{i18n>suppliersTitle}"/>
@@ -56,7 +56,21 @@
 		<items>
 		<ColumnListItem>
 		<cells>
-		<Text text="{supplierID}" />
+		<Text text="{id}"/>
+		<Text text="{name}"/>
+		<Text text="{email}"/>
+		<Text text="{address/street}"/>
+		<Text text="{address/city}"/>
+		<HBox>
+		<Button
+			icon="sap-icon://edit"
+			press="onEdit"
+			type="Transparent"/>
+			<Button
+				icon="sap-icon://delete"
+				press="onDelete"
+				type="Transparent"/>
+		</HBox>
 		</cells>
 		</ColumnListItem>
 		</items>
