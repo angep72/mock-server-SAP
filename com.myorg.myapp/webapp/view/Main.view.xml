@@ -13,7 +13,7 @@
         id="page"
     >
         <content>
-		<Table id="suppliers">
+		<Table id="suppliers" items="{/Suppliers}" mode="SingleSelectMaster" selectionChange="onSelectionChange">
 		<headerToolbar>
 		<Toolbar>
 		<Title text="{i18n>suppliersTitle}"/>
