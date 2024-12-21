@@ -14,7 +14,7 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			MessageToast.show("Hello World");
 		},
 		onAdd:function(){
-			alert("Add button clicked");
+			this.byId("creating-dialog").open();
 		}
 	});
 })

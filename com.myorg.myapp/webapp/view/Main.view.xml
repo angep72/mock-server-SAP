@@ -76,5 +76,10 @@
 		</items>
 		</Table>
 		</content>
+		<Dialog id="creating-dialog" title="{i18n>creatingDialogTitle}">
+		<VBox>
+		<Label text="{i18n>creatingidlabel}"/>
+		</VBox>
+		</Dialog>
     </Page>
 </mvc:View>
