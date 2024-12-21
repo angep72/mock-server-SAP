@@ -40,6 +40,12 @@
 		<Column>
 		<Text text="{i18n>UsersName}"/>
 		</Column>
+		<Column >
+		<Text text="{i18n>UsersEmail}"/>
+		</Column>
+		<Column >
+		<Text text="{i18n>usersaddress}"/>
+		</Column>
 		</columns>
 		</Table>
 		</content>
