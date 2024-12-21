@@ -1,19 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "address": {
-        "street": "123 Main St",
-        "city": "New York",
-        "state": "NY",
-        "zip": "10001"
-      },
-      "phone": "555-1234"
-    },
-    {
-      "id": 2,
+      "id": 2879,
       "name": "Jane Smith",
       "email": "jane.smith@example.com",
       "address": {
