@@ -29,8 +29,8 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			this.byId("updatingDialog").close();
 		},
 		onSaveNewUser:function(){
-			const ID = this.byId("id").getValue();
-			const Name = this.byId("name").getValue();
+			const ID = this.byId("creating-id").getValue();
+			const Name = this.byId("creating-name").getValue();
 		}
 	});
 })
