@@ -17,9 +17,27 @@
 		<headerToolbar>
 		<Toolbar>
 		<Title text="{i18n>suppliersTitle}"/>
+		<ToolbarSpacer />
+		<SearchField
+			placeholder="{i18n>searchPlaceholder}"
+			search="onSearch"
+			width="30%"/>
+			<Button
+				icon="sap-icon://add"
+				press="onAdd"
+				text="{i18n>addButtonText}"/>
+				<Button
+					icon="sap-icon://sort"
+					press="onSort"
+					text="{i18n>sortButtonText}"/>
 		</Toolbar>
 		</headerToolbar>
-		
+
+		<columns>
+		<Column >
+		<Text text="{i18n>supplierID}" />
+		</Column>
+		</columns>
 		</Table>
 		</content>
     </Page>
