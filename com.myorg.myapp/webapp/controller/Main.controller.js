@@ -104,5 +104,6 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			this.byId("updating-city").setValue(userData.city);
 			dialog.open();
 		},
+		
 	});
 })
