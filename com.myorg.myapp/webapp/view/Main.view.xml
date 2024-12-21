@@ -122,6 +122,12 @@
                     change="validateInputCity"
                 />
             </VBox>
+			<beginButton>
+			<Button text="{i18n>creatingDialogSaveButtonText}" press="onSave" />
+			</beginButton>
+			<endButton>
+			<Button text="{i18n>creatingDialogCancelButtonText}" press="onCancel" />
+			</endButton>
         </Dialog>
     </Page>
 </mvc:View>
