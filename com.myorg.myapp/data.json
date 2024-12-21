@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001"
+      },
+      "phone": "555-1234"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "address": {
+        "street": "456 Oak Rd",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zip": "90001"
+      },
+      "phone": "555-5678"
+    },
+    {
+      "id": 3,
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "address": {
+        "street": "789 Pine Ln",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60007"
+      },
+      "phone": "555-9101"
+    },
+    {
+      "id": 23,
+      "postId": 4,
+      "userId": 3,
+      "body": "I can't wait to visit! Your post has inspired me alot ."
+    },
+    {
+      "id": 23,
+      "postId": 4,
+      "userId": 3,
+      "body": "I can't wait to visit! Your post has inspired me alot ."
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Exploring the beauty of New York",
+      "body": "New York is a wonderful city filled with amazing attractions. You can explore Central Park, Times Square, and the Statue of Liberty."
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "title": "A day in Los Angeles",
+      "body": "Los Angeles is known for its beautiful beaches and amazing weather. Take a trip to Santa Monica, Venice Beach, and enjoy the sunny days."
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "title": "Winter in Chicago",
+      "body": "Chicago winters can be harsh, but the snow-covered streets and winter activities are definitely worth it. Don't forget your coat!"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 2,
+      "body": "I love New York! Definitely need to visit again soon."
+    },
+    {
+      "id": 2,
+      "postId": 1,
+      "userId": 3,
+      "body": "I can't wait to visit! Your post has inspired me."
+    },
+    {
+      "id": 3,
+      "postId": 2,
+      "userId": 1,
+      "body": "LA is amazing! I love the beaches."
+    }
+  ]
+}
