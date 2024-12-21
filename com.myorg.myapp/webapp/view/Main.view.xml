@@ -95,7 +95,7 @@
                     id="creating-id"
                     type="Number"
                     valueStateText="{i18n>creatingidvalueStateText}"
-                    change="validateInputId"
+                    change="validateProductId"
                 />
                 <Label text="{i18n>creatingnamelabel}" />
                 <Input
