@@ -18,6 +18,12 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 		},
 		onCancelNewUser:function(){
 			this.byId("creating-dialog").close();
-		}
+		},
+		onEdit:function(oEvent){
+			var oItem = oEvent.getSource();
+			var oCtx = oItem.getBindingContext();
+			this.byId("updatingDialog").setBindingContext(oCtx);
+			this.byId("updatingDialog").open();
+		},
 	});
 })
