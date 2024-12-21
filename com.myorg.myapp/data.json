@@ -35,6 +35,13 @@
         "zip": "60007"
       },
       "phone": "555-9101"
+    },
+    {
+      "id": "4",
+      "name": "Pauline Ange",
+      "email": "umunyana@gmail.com",
+      "address": "321 st John",
+      "city": "Kigali"
     }
   ],
   "posts": [
