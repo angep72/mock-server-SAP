@@ -21,11 +21,12 @@
                     <Toolbar>
                         <Title text="{i18n>suppliersTitle}" />
                         <ToolbarSpacer />
-                        <SearchField
-                            placeholder="{i18n>searchPlaceholder}"
-                            search="onSearch"
-                            width="30%"
-                        />
+                         <SearchField
+        id="searchField"
+        width="100%"
+        liveChange="onSearch"
+        placeholder="Search..."
+    />
                         <Button
                             icon="sap-icon://add"
                             press="onAdd"
