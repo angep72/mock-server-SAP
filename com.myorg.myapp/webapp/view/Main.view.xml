@@ -13,15 +13,14 @@
         id="page"
     >
         <content>
-            <Panel>
-                <Table>
-				<headerToolbar>
-				<Toolbar >
-				<Title text="{i18n>tableTitle}" />
-				</Toolbar>
-				</headerToolbar>
-				</Table>
-            </Panel>
-        </content>
+		<Table id="suppliers">
+		<headerToolbar>
+		<Toolbar>
+		<Title text="{i18n>suppliersTitle}"/>
+		</Toolbar>
+		</headerToolbar>
+		
+		</Table>
+		</content>
     </Page>
 </mvc:View>
