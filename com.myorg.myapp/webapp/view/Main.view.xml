@@ -32,7 +32,12 @@
 					text="{i18n>sortButtonText}"/>
 		</Toolbar>
 		</headerToolbar>
-		
+
+		<columns>
+		<Column >
+		<Text text="{i18n>supplierID}" />
+		</Column>
+		</columns>
 		</Table>
 		</content>
     </Page>
