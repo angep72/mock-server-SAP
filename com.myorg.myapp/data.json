@@ -42,6 +42,13 @@
       "email": "umunyana@gmail.com",
       "address": "321 st John",
       "city": "Kigali"
+    },
+    {
+      "id": "5",
+      "name": "christmas",
+      "email": "ange@gmail.com",
+      "address": "321 st John",
+      "city": "Kigali"
     }
   ],
   "posts": [
