@@ -3,7 +3,12 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 	return Controller.extend("com.myorg.myapp.controller.Main", {
        onInit:function(){
 		const oModel = new JSONModel();
-		oModel.loadData("localhost:3000/data");
+		oModel.loadData("http://localhost:3000/data");
+		this.getView().setModel(oModel);
+
+		// You can directly access the model data if needed
+		var oData = oModel.getData();  // This gets the raw data from the model
+		console.log(oData);  
 	   },
 		onPress: function() {
 			MessageToast.show("Hello World");
