@@ -25,5 +25,8 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			this.byId("updatingDialog").setBindingContext(oCtx);
 			this.byId("updatingDialog").open();
 		},
+		onCancelUpdatedUser:function(){
+			this.byId("updatingDialog").close();
+		}
 	});
 })
