@@ -13,74 +13,91 @@
         id="page"
     >
         <content>
-		<Table id="suppliers" items="{/users}">
-		<headerToolbar>
-		<Toolbar>
-		<Title text="{i18n>suppliersTitle}"/>
-		<ToolbarSpacer />
-		<SearchField
-			placeholder="{i18n>searchPlaceholder}"
-			search="onSearch"
-			width="30%"/>
-			<Button
-				icon="sap-icon://add"
-				press="onAdd"
-				text="{i18n>addButtonText}"/>
-				<Button
-					icon="sap-icon://sort"
-					press="onSort"
-					text="{i18n>sortButtonText}"/>
-		</Toolbar>
-		</headerToolbar>
+            <Table
+                id="suppliers"
+                items="{/users}"
+            >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>suppliersTitle}" />
+                        <ToolbarSpacer />
+                        <SearchField
+                            placeholder="{i18n>searchPlaceholder}"
+                            search="onSearch"
+                            width="30%"
+                        />
+                        <Button
+                            icon="sap-icon://add"
+                            press="onAdd"
+                            text="{i18n>addButtonText}"
+                        />
+                        <Button
+                            icon="sap-icon://sort"
+                            press="onSort"
+                            text="{i18n>sortButtonText}"
+                        />
+                    </Toolbar>
+                </headerToolbar>
 
-		<columns>
-		<Column >
-		<Text text="{i18n>supplierID}" />
-		</Column>
-		<Column>
-		<Text text="{i18n>UsersName}"/>
-		</Column>
-		<Column >
-		<Text text="{i18n>UsersEmail}"/>
-		</Column>
-		<Column >
-		<Text text="{i18n>usersaddress}"/>
-		</Column>
-		<Column >
-		<Text text="{i18n>usersCity}"/>
-		</Column>
-		<Column >
-		<Text text="{i18n>actionsicon}"/>
-		</Column>
-		</columns>
-		<items>
-		<ColumnListItem>
-		<cells>
-		<Text text="{id}"/>
-		<Text text="{name}"/>
-		<Text text="{email}"/>
-		<Text text="{address/street}"/>
-		<Text text="{address/city}"/>
-		<HBox>
-		<Button
-			icon="sap-icon://edit"
-			press="onEdit"
-			type="Transparent"/>
-			<Button
-				icon="sap-icon://delete"
-				press="onDelete"
-				type="Transparent"/>
-		</HBox>
-		</cells>
-		</ColumnListItem>
-		</items>
-		</Table>
-		</content>
-		<Dialog id="creating-dialog" title="{i18n>creatingDialogTitle}" class="sapUiContentPadding">
-		<VBox>
-		<Label text="{i18n>creatingidlabel}"/>
-		<Input id="creating-id" type="Number" value="{/newUser/id}"/>
-		</VBox>
-		</Dialog>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>supplierID}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>UsersName}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>UsersEmail}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>usersaddress}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>usersCity}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>actionsicon}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{id}" />
+                            <Text text="{name}" />
+                            <Text text="{email}" />
+                            <Text text="{address/street}" />
+                            <Text text="{address/city}" />
+                            <HBox>
+                                <Button
+                                    icon="sap-icon://edit"
+                                    press="onEdit"
+                                    type="Transparent"
+                                />
+                                <Button
+                                    icon="sap-icon://delete"
+                                    press="onDelete"
+                                    type="Transparent"
+                                />
+                            </HBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <Dialog
+            id="creating-dialog"
+            title="{i18n>creatingDialogTitle}"
+            class="sapUiContentPadding"
+        >
+            <VBox>
+                <Label text="{i18n>creatingidlabel}" />
+                <Input
+                    id="creating-id"
+                    type="Number"
+                    valueStateText="{i18n>creatingidvalueStateText}"
+                    change="validateInputId"
+                />
+            </VBox>
+        </Dialog>
     </Page>
 </mvc:View>
