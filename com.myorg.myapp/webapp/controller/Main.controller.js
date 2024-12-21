@@ -1,40 +1,40 @@
-sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model/json/JSONModel"], function(Controller, MessageToast,JSONModel) {
+sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/ui/model/json/JSONModel"], function (Controller, MessageToast, JSONModel) {
 	"use strict";
 	return Controller.extend("com.myorg.myapp.controller.Main", {
-       onInit:function(){
-		const oModel = new JSONModel();
-		oModel.loadData("http://localhost:3000/data");
-		this.getView().setModel(oModel);
+		onInit: function () {
+			const oModel = new JSONModel();
+			oModel.loadData("http://localhost:3000/data");
+			this.getView().setModel(oModel);
 
-		// You can directly access the model data if needed
-		var oData = oModel.getData();  // This gets the raw data from the model
-		console.log(oData);  
-	   },
-		onPress: function() {
+			// You can directly access the model data if needed
+			var oData = oModel.getData();  // This gets the raw data from the model
+			console.log(oData);
+		},
+		onPress: function () {
 			MessageToast.show("Hello World");
 		},
-		onAdd:function(){
+		onAdd: function () {
 			this.byId("creating-dialog").open();
 		},
-		onCancelNewUser:function(){
+		onCancelNewUser: function () {
 			this.byId("creating-dialog").close();
 		},
-		onEdit:function(oEvent){
+		onEdit: function (oEvent) {
 			var oItem = oEvent.getSource();
 			var oCtx = oItem.getBindingContext();
 			this.byId("updatingDialog").setBindingContext(oCtx);
 			this.byId("updatingDialog").open();
 		},
-		onCancelUpdatedUser:function(){
+		onCancelUpdatedUser: function () {
 			this.byId("updatingDialog").close();
 		},
-		onSaveNewUser:function(){
+		onSaveNewUser: function () {
 			const ID = this.byId("creating-id").getValue();
 			const Name = this.byId("creating-name").getValue();
 			const email = this.byId("creating-email").getValue();
 			const address = this.byId("creating-address").getValue();
 			const city = this.byId("creating-city").getValue();
-			
+
 			fetch("http://localhost:3000/add-user", {
 				method: "POST",
 				headers: {
@@ -54,7 +54,7 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 				MessageToast.show("Error adding user");
 			});
 		},
-		onDelete: function(oEvent) {
+		onDelete: function (oEvent) {
 			var oItem = oEvent.getSource();
 			var oCtx = oItem.getBindingContext();
 			var sPath = oCtx.getPath();
@@ -82,7 +82,7 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 						oDialog.close();
 					}
 				}),
-				afterClose: function() {
+				afterClose: function () {
 					oDialog.destroy();
 				}
 			});
@@ -90,7 +90,7 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			// Open the dialog
 			oDialog.open();
 		},
-		onEdit:function(oEvent){
+		onEdit: function (oEvent) {
 			const button = oEvent.getSource();
 			const listItem = button.getParent();
 			const context = listItem.getBindingContext();
@@ -104,31 +104,31 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			this.byId("updating-city").setValue(userData.city);
 			dialog.open();
 		},
-		onSaveUpdatedUser:function(){
-			const ID = this.byId("updating-id").getValue();
+		onSaveUpdatedUser: function () {
+			const ID = this._selectedUserId
 			const Name = this.byId("updating-name").getValue();
 			const email = this.byId("updating-email").getValue();
 			const address = this.byId("updating-address").getValue();
 			const city = this.byId("updating-city").getValue();
-			
-			fetch(`http://localhost:3000/update-user/${this._selectedUserId}`,{
-				method:"PUT",
-				headers:{
-					"Content-Type":"application/json"
+
+			fetch(`http://localhost:3000/update-user/${ID}`, {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json"
 				},
-				body:JSON.stringify({
+				body: JSON.stringify({
 					id: ID,
 					name: Name,
 					email: email,
 					address: address,
 					city: city
 				})
-			}).then(()=>{
+			}).then(() => {
 				MessageToast.show("User updated successfully");
 				this.byId("updatingDialog").close();
-			}).catch(()=>{
+			}).catch(() => {
 				MessageToast.show("Error updating user");
 			})
-
+		} 
 	});
 })
