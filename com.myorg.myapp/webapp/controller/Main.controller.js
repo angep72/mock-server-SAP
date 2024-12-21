@@ -34,6 +34,25 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			const email = this.byId("creating-email").getValue();
 			const address = this.byId("creating-address").getValue();
 			const city = this.byId("creating-city").getValue();
+			
+			fetch("http://localhost:3000/add-user", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					id: ID,
+					name: Name,
+					email: email,
+					address: address,
+					city: city
+				})
+			}).then(() => {
+				MessageToast.show("User added successfully");
+				this.byId("creating-dialog").close();
+			}).catch(() => {
+				MessageToast.show("Error adding user");
+			});
 		}
 	});
 })
