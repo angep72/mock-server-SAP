@@ -97,6 +97,12 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			const userData = context.getObject();
 			this._selectedUserId = userData.id;
 			const dialog = this.byId("updatingDialog");
+			this.byId("updating-id").setValue(userData.id);
+			this.byId("updating-name").setValue(userData.name);
+			this.byId("updating-email").setValue(userData.email);
+			this.byId("updating-address").setValue(userData.address);
+			this.byId("updating-city").setValue(userData.city);
+			dialog.open();
 		},
 	});
 })
