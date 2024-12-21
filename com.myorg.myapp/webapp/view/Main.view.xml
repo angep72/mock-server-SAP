@@ -79,7 +79,7 @@
 		<Dialog id="creating-dialog" title="{i18n>creatingDialogTitle}" class="sapUiContentPadding">
 		<VBox>
 		<Label text="{i18n>creatingidlabel}"/>
-		<Input id="creating-id" value="{/newUser/id}"  required="true"/>
+		<Input id="creating-id" type="Number" value="{/newUser/id}"/>
 		</VBox>
 		</Dialog>
     </Page>
