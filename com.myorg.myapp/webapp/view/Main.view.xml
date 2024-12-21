@@ -26,6 +26,10 @@
 				icon="sap-icon://add"
 				press="onAdd"
 				text="{i18n>addButtonText}"/>
+				<Button
+					icon="sap-icon://sort"
+					press="onSort"
+					text="{i18n>sortButtonText}"/>
 		</Toolbar>
 		</headerToolbar>
 		
