@@ -17,7 +17,7 @@
                 <Table>
 				<headerToolbar>
 				<Toolbar >
-				
+				<Title text="{i18n>tableTitle}" />
 				</Toolbar>
 				</headerToolbar>
 				</Table>
