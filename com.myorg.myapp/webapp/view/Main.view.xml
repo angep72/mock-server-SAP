@@ -46,6 +46,12 @@
 		<Column >
 		<Text text="{i18n>usersaddress}"/>
 		</Column>
+		<Column >
+		<Text text="{i18n>usersCity}"/>
+		</Column>
+		<Column >
+		<Text text="{i18n>actionsicon}"/>
+		</Column>
 		</columns>
 		</Table>
 		</content>
