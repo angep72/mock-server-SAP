@@ -90,5 +90,45 @@ sap.ui.define([	"sap/ui/core/mvc/Controller",	"sap/m/MessageToast","sap/ui/model
 			// Open the dialog
 			oDialog.open();
 		},
+		onEdit:function(oEvent){
+			const button = oEvent.getSource();
+			const listItem = button.getParent();
+			const context = listItem.getBindingContext();
+			const userData = context.getObject();
+			this._selectedUserId = userData.id;
+			const dialog = this.byId("updatingDialog");
+			this.byId("updating-id").setValue(userData.id);
+			this.byId("updating-name").setValue(userData.name);
+			this.byId("updating-email").setValue(userData.email);
+			this.byId("updating-address").setValue(userData.address);
+			this.byId("updating-city").setValue(userData.city);
+			dialog.open();
+		},
+		onSaveUpdatedUser:function(){
+			const ID = this.byId("updating-id").getValue();
+			const Name = this.byId("updating-name").getValue();
+			const email = this.byId("updating-email").getValue();
+			const address = this.byId("updating-address").getValue();
+			const city = this.byId("updating-city").getValue();
+			
+			fetch(`http://localhost:3000/update-user/${this._selectedUserId}`,{
+				method:"PUT",
+				headers:{
+					"Content-Type":"application/json"
+				},
+				body:JSON.stringify({
+					id: ID,
+					name: Name,
+					email: email,
+					address: address,
+					city: city
+				})
+			}).then(()=>{
+				MessageToast.show("User updated successfully");
+				this.byId("updatingDialog").close();
+			}).catch(()=>{
+				MessageToast.show("Error updating user");
+			})
+
 	});
 })
