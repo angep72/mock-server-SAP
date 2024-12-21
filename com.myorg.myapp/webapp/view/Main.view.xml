@@ -97,6 +97,12 @@
                     valueStateText="{i18n>creatingidvalueStateText}"
                     change="validateInputId"
                 />
+				<Label text="{i18n>creatingnamelabel}" />
+				<Input
+					id="creating-name"
+					valueStateText="{i18n>creatingnamevalueStateText}"
+					change="validateInputName"
+				/>
             </VBox>
         </Dialog>
     </Page>
