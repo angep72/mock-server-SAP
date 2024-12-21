@@ -109,6 +109,18 @@
                     valueStateText="{i18n>creatingemailvalueStateText}"
                     change="validateInputEmail"
                 />
+                <Label text="{i18n>creatingaddresslabel}" />
+                <Input
+                    id="creating-address"
+                    valueStateText="{i18n>creatingaddressvalueStateText}"
+                    change="validateInputAddress"
+                />
+                <Label text="{i18n>creatingcitylabel}" />
+                <Input
+                    id="creating-city"
+                    valueStateText="{i18n>creatingcityvalueStateText}"
+                    change="validateInputCity"
+                />
             </VBox>
         </Dialog>
     </Page>
