@@ -13,7 +13,7 @@
         id="page"
     >
         <content>
-		<Table id="suppliers">
+		<Table id="suppliers" items="{/Suppliers}" mode="SingleSelectMaster" selectionChange="onSelectionChange">
 		<headerToolbar>
 		<Toolbar>
 		<Title text="{i18n>suppliersTitle}"/>
@@ -36,6 +36,21 @@
 		<columns>
 		<Column >
 		<Text text="{i18n>supplierID}" />
+		</Column>
+		<Column>
+		<Text text="{i18n>UsersName}"/>
+		</Column>
+		<Column >
+		<Text text="{i18n>UsersEmail}"/>
+		</Column>
+		<Column >
+		<Text text="{i18n>usersaddress}"/>
+		</Column>
+		<Column >
+		<Text text="{i18n>usersCity}"/>
+		</Column>
+		<Column >
+		<Text text="{i18n>actionsicon}"/>
 		</Column>
 		</columns>
 		</Table>
