@@ -4,13 +4,9 @@
       "id": 2879,
       "name": "Jane Smith",
       "email": "jane.smith@example.com",
-      "address": {
-        "street": "456 Oak Rd",
-        "city": "Los Angeles",
-        "state": "CA",
-        "zip": "90001"
-      },
-      "phone": "555-5678"
+      "address": "[object Object]",
+      "phone": "555-5678",
+      "city": ""
     },
     {
       "id": 3,
