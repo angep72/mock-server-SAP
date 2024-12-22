@@ -148,7 +148,29 @@ sap.ui.define([
 			this._originalData = oModel.getProperty("/users");
 		},
 		onSaveUpdatedUser:function(){
-			
+			const userId = this._selectedUserId;
+			const name = this.byId("updating-name").getValue();
+			const email = this.byId("updating-email").getValue();
+			const address = this.byId("updating-address").getValue();	
+			const city = this.byId("updating-city").getValue();
+			fetch(`http://localhost:3000/update-user/${userId}`, {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					name: name,
+					email: email,
+					address: address,
+					city: city
+				})
+			}).then((response)=>{
+				if(!response.ok){
+					throw new Error("Error updating user");
+				}
+				MessageBox.success("User updated successfully");
+				this.on
+			})
 		}
 
 		
