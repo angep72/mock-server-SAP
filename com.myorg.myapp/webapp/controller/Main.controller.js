@@ -147,6 +147,10 @@ sap.ui.define([
 			oModel.loadData("http://localhost:3000/data", null, false);
 			this._originalData = oModel.getProperty("/users");
 		},
+		onSaveUpdatedUser:function(){
+			
+		}
+
 		
 	})
 
