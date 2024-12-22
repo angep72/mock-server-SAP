@@ -153,6 +153,23 @@ sap.ui.define([
 				}).catch(() => {
 					MessageToast.show("Error updating user");
 				})
-			}
+				},
+				onSearch: function (oEvent) {
+					const searchValue = oEvent.getParameter("newValue").toLowerCase();
+					const oModel = this.getView().getModel();
+					const aData = oModel.getProperty("/users");
+				
+					if (searchValue) {
+						const filteredData = aData.filter(user => {
+							return ['id', 'name', 'city'].some(key => {
+								return String(user[key]).toLowerCase().includes(searchValue);
+							});
+						});
+						oModel.setProperty("/users", filteredData);
+					} else {
+						// If search field is cleared, restore all data
+						oModel.setProperty("/users", aData);
+					}
+				},
 		});
 	})
