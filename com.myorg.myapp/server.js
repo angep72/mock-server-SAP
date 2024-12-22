@@ -47,53 +47,42 @@ app.get('/data', (req, res) => {
 
 
 app.put('/update-user/:id', (req, res) => {
-  const userId = parseInt(req.params.id, 10);
-
-  // Check for valid userId
-  if (isNaN(userId)) {
-    return res.status(400).json({ message: 'Invalid user ID' });
-  }
-
-  const updatedUser = req.body;
-
-  // Check if the updatedUser contains necessary fields
-  if (!updatedUser || !updatedUser.name) {  // Assuming 'name' is required
-    return res.status(400).json({ message: 'Invalid user data' });
-  }
-
-  fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading file:', err);
-      return res.status(500).json({ message: 'Error reading data file' });
-    }
-    try {
-      const jsonData = JSON.parse(data);
-      const userIndex = jsonData.users.findIndex((user) => user.id === userId);
-
-      if (userIndex === -1) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-
-      // Merge existing user data with the updated data
-      jsonData.users[userIndex] = { ...jsonData.users[userIndex], ...updatedUser };
-
-      // Write the updated data back to the file
-      fs.writeFile(
-        path.join(__dirname, 'data.json'),
-        JSON.stringify(jsonData, null, 2),
-        (writeErr) => {
-          if (writeErr) {
-            console.error('Error writing file:', writeErr);
-            return res.status(500).json({ message: 'Error saving data' });
-          }
-          return res.json({ message: 'User updated successfully' });
+    const userId =req.params.id;
+    const updatedUser = req.body;
+    // Read the existing data from the JSON file
+    fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            res.status(500).json({ message: 'Error reading data file' });
+            return;
         }
-      );
-    } catch (parseError) {
-      console.error('Error parsing JSON:', parseError);
-      return res.status(500).json({ message: 'Error parsing JSON data' });
-    }
-  });
+        try {
+            const jsonData = JSON.parse(data);
+            const userIndex = jsonData.users.findIndex((user) => user.id == userId);
+            if (userIndex === -1) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+            // Update the user details
+            jsonData.users[userIndex] = updatedUser;
+            // Write the updated data back to the file
+            fs.writeFile(
+                path.join(__dirname, 'data.json'),
+                JSON.stringify(jsonData, null, 2),
+                (writeErr) => {
+                    if (writeErr) {
+                        console.error('Error writing file:', writeErr);
+                        res.status(500).json({ message: 'Error saving data' });
+                        return;
+                    }
+                    res.json({ message: 'User updated successfully' });
+                }
+            );
+        } catch (parseError) {
+            console.error('Error parsing JSON:', parseError);
+            res.status(500).json({ message: 'Error parsing JSON data' });
+        }
+    });    
+
 });
 
     // Read the existing data from the JSON file
