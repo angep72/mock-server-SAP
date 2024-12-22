@@ -78,6 +78,7 @@ sap.ui.define([
             }).then(() => {
                 MessageToast.show("User added successfully");
                 this.byId("creating-dialog").close();
+                this._refreshModel();
             }).catch(() => {
                 MessageToast.show("Error adding user");
             });
@@ -142,6 +143,7 @@ sap.ui.define([
             }).then(() => {
                 MessageToast.show("User updated successfully");
                 this.byId("updatingDialog").close();
+                this._refreshModel();
             }).catch(() => {
                 MessageToast.show("Error updating user");
             });
@@ -163,6 +165,12 @@ sap.ui.define([
                 // If search field is cleared, restore all data
                 oModel.setProperty("/users", aData);
             }
+        },
+
+        _refreshModel: function () {
+            const oModel = this.getView().getModel();
+            oModel.loadData("http://localhost:3000/data", null, false);
+            this._originalData = oModel.getProperty("/users");
         }
     });
 });
