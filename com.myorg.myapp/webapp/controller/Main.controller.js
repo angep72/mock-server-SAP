@@ -11,7 +11,7 @@ sap.ui.define([
 
 				// You can directly access the model data if needed
 				var oData = oModel.getData();  // This gets the raw data from the model
-				console.log(oData);
+				this._originalData = oModel.getProperty("/users");
 			},
 			validateProductId: function (oEvent) {
 				const input = oEvent.getSource();
@@ -157,7 +157,7 @@ sap.ui.define([
 				onSearch: function (oEvent) {
 					const searchValue = oEvent.getParameter("newValue").toLowerCase();
 					const oModel = this.getView().getModel();
-					const aData = oModel.getProperty("/users");
+					const aData = this._originalData; // Use the original data
 				
 					if (searchValue) {
 						const filteredData = aData.filter(user => {
