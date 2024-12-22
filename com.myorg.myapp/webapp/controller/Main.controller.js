@@ -90,6 +90,7 @@ sap.ui.define([
 			var sPath = oCtx.getPath();
 			var oModel = this.getView().getModel();
 			var aData = oModel.getProperty("/users");
+			console.log(aData)
 
 			// Create a confirmation dialog
 			var oDialog = new sap.m.Dialog({
