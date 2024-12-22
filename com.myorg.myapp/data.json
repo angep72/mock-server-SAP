@@ -11,13 +11,8 @@
       "id": 34563,
       "name": "Alice Johnson",
       "email": "alice.johnson@example.com",
-      "address": {
-        "street": "789 Pine Ln",
-        "city": "Chicago",
-        "state": "IL",
-        "zip": "60007"
-      },
-      "phone": "555-9101"
+      "address": "[object Object]",
+      "city": ""
     },
     {
       "id": 46574,
@@ -37,6 +32,13 @@
       "id": 45,
       "name": "Paulinr",
       "email": "umunyana@gmail.com",
+      "address": "321 st John",
+      "city": "Kigali"
+    },
+    {
+      "id": 21,
+      "name": "Richard",
+      "email": "ange@gmail.com",
       "address": "321 st John",
       "city": "Kigali"
     }
