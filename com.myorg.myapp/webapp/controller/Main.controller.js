@@ -2,7 +2,7 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast",
 	"sap/ui/model/json/JSONModel"
-], function (Controller, MessageToast, JSONModel) {
+], function (Controller, MessageToast, JSONModel,MessageBox) {
 	"use strict";
 	return Controller.extend("com.myorg.myapp.controller.Main", {
 		onInit: function () {
@@ -169,7 +169,8 @@ sap.ui.define([
 					throw new Error("Error updating user");
 				}
 				MessageBox.success("User updated successfully");
-				this.on
+				this.onCancelUpdatedUser();
+				this.getView().getModel().refresh(true)
 			})
 		}
 

@@ -8,14 +8,12 @@
       "city": ""
     },
     {
-      "id": 34563,
-      "name": "Alice Johnson",
+      "name": "Alice ",
       "email": "alice.johnson@example.com",
       "address": "[object Object]",
       "city": ""
     },
     {
-      "id": 46574,
       "name": "Pauline Ange",
       "email": "umunyana@gmail.com",
       "address": "321 st John",
@@ -29,16 +27,21 @@
       "city": "Kigali"
     },
     {
-      "id": 45,
-      "name": "Paulinr",
-      "email": "umunyana@gmail.com",
+      "name": "Richard",
+      "email": "ange@gmail.com",
       "address": "321 st John",
       "city": "Kigali"
     },
     {
-      "id": 21,
-      "name": "Richard",
-      "email": "ange@gmail.com",
+      "id": 23,
+      "postId": 4,
+      "userId": 3,
+      "body": "I can't wait to visit! Your post has inspired me alot ."
+    },
+    {
+      "id": "45",
+      "name": "Paulin",
+      "email": "umunyana@gmail.com",
       "address": "321 st John",
       "city": "Kigali"
     }
