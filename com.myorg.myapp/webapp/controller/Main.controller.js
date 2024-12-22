@@ -121,33 +121,7 @@ sap.ui.define([
             oDialog.open();
         },
 
-        onSaveUpdatedUser: function () {
-            const ID = this._selectedUserId;
-            const Name = this.byId("updating-name").getValue();
-            const email = this.byId("updating-email").getValue();
-            const address = this.byId("updating-address").getValue();
-            const city = this.byId("updating-city").getValue();
-
-            fetch(`http://localhost:3000/update-user/${ID}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    id: ID,
-                    name: Name,
-                    email: email,
-                    address: address,
-                    city: city
-                })
-            }).then(() => {
-                MessageToast.show("User updated successfully");
-                this.byId("updatingDialog").close();
-                this._refreshModel();
-            }).catch(() => {
-                MessageToast.show("Error updating user");
-            });
-        },
+	
 
         onSearch: function (oEvent) {
             const searchValue = oEvent.getParameter("newValue").toLowerCase();
