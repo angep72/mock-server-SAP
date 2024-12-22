@@ -24,7 +24,7 @@
                          <SearchField
         id="searchField"
         width="100%"
-        liveChange="onSearch"
+        liveChange="onLiveSearch"
         placeholder="Search..."
     />
                         <Button

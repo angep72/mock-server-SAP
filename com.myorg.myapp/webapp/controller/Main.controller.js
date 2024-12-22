@@ -25,31 +25,15 @@ sap.ui.define([
 				input.setValueState("None");
 				return true;
 			},
-			onSearch: function (oEvent) {
-				var sQuery = oEvent.getParameter("newValue");
-				var oTable = this.byId("suppliers");
-				var oBinding = oTable.getBinding("items");
-				var aFilters = [];
-
-				if (sQuery && sQuery.length > 0) {
-					var aFilterFields = ["id", "name", "email", "address", "city"];
-					aFilters = aFilterFields.map(function (field) {
-						return new sap.ui.model.Filter({
-							path: field,
-							operator: sap.ui.model.FilterOperator.Contains,
-							value1: sQuery,
-							caseSensitive: false
-						});
-					});
-					var oFilter = new sap.ui.model.Filter({
-						filters: aFilters,
-						and: false
-					});
-					oBinding.filter(oFilter);
-				} else {
-					oBinding.filter([]);
-				}
-			},
+			
+	
+			
+	
+			// Optional: Handle the search button press
+			
+	
+			// Optional: Handle clear search
+			
 			onPress: function () {
 				MessageToast.show("Hello World");
 			},
