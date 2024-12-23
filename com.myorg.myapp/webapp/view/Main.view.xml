@@ -103,31 +103,50 @@
                     valueStateText="{i18n>creatingidvalueStateText}"
                     change="validateProductId"
                 />
-                <Label text="{i18n>creatingnamelabel}" />
+                <Label text="firstName" />
                 <Input
-                    id="creating-name"
-                    valueStateText="{i18n>creatingnamevalueStateText}"
+                    id="creating-fname"
+                    valueStateText="This should be a valid name"
                     change="validateInputName"
                 />
+                <Label text="lastName" />
+                <Input
+                    id="creating-lname"
+                    valueStateText="This should be a valid name"
+                    change="validateInputName"/>
+
+
                 <Label text="{i18n>creatingemaillabel}" />
                 <Input
                     id="creating-email"
                     valueStateText="{i18n>creatingemailvalueStateText}"
                     change="validateInputEmail"
                 />
-                <Label text="{i18n>creatingaddresslabel}" />
+
+                <Label text="Age"/>
                 <Input
-                    id="creating-address"
+                    id="creating-age"
                     type="Number"
-                    valueStateText="{i18n>creatingaddressvalueStateText}"
+                    valueStateText="this should be a valid age"
                     change="validateInputAddress"
                 />
+
                 <Label text="{i18n>creatingcitylabel}" />
                 <Input
                     id="creating-city"
                     valueStateText="{i18n>creatingcityvalueStateText}"
                     change="validateInputCity"
                 />
+                <Label text="Occupation" />
+                <Input
+                    id="creating-occupation"
+                    valueStateText="This should be a valid occupation"
+                    change="validateInputCity"/>
+                <Label text="Activity" />
+                <Input
+                    id="creating-activity"
+                    valueStateText="This should be a valid activity"
+                    change="validateInputCity"/>
             </VBox>
             <beginButton>
                 <Button
