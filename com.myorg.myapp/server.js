@@ -98,6 +98,38 @@ app.get('/data/:id', (req, res) => {
         })
     })
 
+    //route to update a user
+    app.put('/data/:id', (req, res) => {
+        //updating the user id 
+        const userId = parseInt(req.params.id, 10);
+        const updatedUser = req.body;
+        const filePath = path.join(__dirname, 'data.json');
+        fs.readFile(filePath, 'utf8', (err, data) => {
+          if (err) {
+            return res.status(500).send('Error reading file');
+          }
+      
+          try {
+            const jsonData = JSON.parse(data);
+            const userIndex = jsonData.users.findIndex(u => u.id === userId);
+            if (userIndex === -1) {
+              return res.status(404).send('User not found');
+            }
+            jsonData.users[userIndex] = updatedUser;
+      
+            fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (writeErr) => {
+              if (writeErr) {
+                return res.status(500).send('Error writing file');
+              }
+              res.json(updatedUser);
+            });
+          } catch (parseErr) {
+            res.status(500).send('Error parsing JSON data');
+          }
+        });
+      });
+
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
