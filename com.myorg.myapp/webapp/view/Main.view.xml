@@ -42,21 +42,21 @@
 
                 <columns>
                     <Column>
-                        <Text text="{i18n>supplierID}" />
+                        <Text text="Users ID" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>UsersName}" />
+                        <Text text="UserName" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>UsersEmail}" />
+                        <Text text="Email" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>usersaddress}" />
+                        <Text text="City" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>usersCity}" />
+                        <Text text="Occupation" />
                     </Column>
-                    <Column>
+                     <Column>
                         <Text text="{i18n>actionsicon}" />
                     </Column>
                 </columns>
@@ -66,20 +66,17 @@
                             <Text text="{id}" />
                             <Text text="{firstName}" />
                             <Text text="{email}" />
-                            <Text text="{age}" />
                             <Text text="{city}" />
+                            <Text text="{occupation}" />
                             <HBox>
-                                <Button
-                                    icon="sap-icon://edit"
-                                    press="onEdit"
-                                    type="Transparent"
-                                />
-                                <Button
-                                    icon="sap-icon://delete"
-                                    press="onDelete"
-                                    type="Transparent"
-                                />
-                            </HBox>
+                            <Button
+                                icon="sap-icon://edit"
+                                press="onEdit"
+                            />
+                            <Button
+                                icon="sap-icon://delete"
+                                press="onDelete"
+                            /></HBox>
                         </cells>
                     </ColumnListItem>
                 </items>
@@ -91,38 +88,37 @@
             class="sapUiContentPadding"
         >
             <VBox>
-                <Label text="{i18n>creatingidlabel}" />
+            <Label text="UserID" />
                 <Input
                     id="creating-id"
                     type="Number"
-                    valueStateText="{i18n>creatingidvalueStateText}"
-                    change="validateProductId"
+                    valueStateText="{i18n>creatingDialogIdValueStateText}"
+                    change="validateInputId"
                 />
-                <Label text="{i18n>creatingnamelabel}" />
+                <Label text="Name" />
                 <Input
                     id="creating-name"
-                    valueStateText="{i18n>creatingnamevalueStateText}"
+                    valueStateText="{i18n>creatingDialogNameValueStateText}"
                     change="validateInputName"
                 />
-                <Label text="{i18n>creatingemaillabel}" />
+                <Label text="User email" />
                 <Input
                     id="creating-email"
-                    valueStateText="{i18n>creatingemailvalueStateText}"
+                    valueStateText="{i18n>creatingDialogEmailValueStateText}"
                     change="validateInputEmail"
                 />
-                <Label text="{i18n>creatingaddresslabel}" />
-                <Input
-                    id="creating-address"
-                    valueStateText="{i18n>creatingaddressvalueStateText}"
-                    change="validateInputAddress"
-                />
-                <Label text="{i18n>creatingcitylabel}" />
+                <Label text="City" />
                 <Input
                     id="creating-city"
-                    valueStateText="{i18n>creatingcityvalueStateText}"
+                    valueStateText="{i18n>creatingDialogCityValueStateText}"
+                    change="validateInputCity"/>
+                <Label text="Occupation" />
+                <Input
+                    id="creating-occupation"
+                    valueStateText="{i18n>creatingDialogCityValueStateText}"
                     change="validateInputCity"
                 />
-            </VBox>
+               </VBox>
             <beginButton>
                 <Button
                     text="{i18n>creatingDialogSaveButtonText}"
@@ -149,7 +145,7 @@
                     valueStateText="{i18n>updatingDialogIdValueStateText}"
                     change="validateInputId"
                 />
-                <Label text="{i18n>updatingDialogNameLabel}" />
+                <Label text="Up-dating user name" />
                 <Input
                     id="updating-name"
                     valueStateText="{i18n>updatingDialogNameValueStateText}"
@@ -161,15 +157,15 @@
                     valueStateText="{i18n>updatingDialogEmailValueStateText}"
                     change="validateInputEmail"
                 />
-                <Label text="{i18n>updatingDialogAddressLabel}" />
+                <Label text="Updating-City" />
                 <Input
-                    id="updating-address"
+                    id="updating-city"
                     valueStateText="{i18n>updatingDialogAddressValueStateText}"
                     change="validateInputAddress"
                 />
-                <Label text="{i18n>updatingDialogCityLabel}" />
+                <Label text="Updating-occupation" />
                 <Input
-                    id="updating-city"
+                    id="updating-occupation"
                     valueStateText="{i18n>updatingDialogCityValueStateText}"
                     change="validateInputCity"
                 />

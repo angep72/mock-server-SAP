@@ -12,23 +12,6 @@ sap.ui.define([
 			this._originalData = oModel.getProperty("/users");
 		},
 
-		validateProductId: function (oEvent) {
-			const input = oEvent.getSource();
-			const value = input.getValue();
-
-			if (!/^\d+$/.test(value)) {
-				input.setValueState("Error");
-				return false;
-			}
-
-			input.setValueState("None");
-			return true;
-		},
-
-		onPress: function () {
-			MessageToast.show("Hello World");
-		},
-
 		onAdd: function () {
 			this.byId("creating-dialog").open();
 		},
@@ -36,6 +19,46 @@ sap.ui.define([
 		onCancelNewUser: function () {
 			this.byId("creating-dialog").close();
 		},
+		onSaveNewUser: function () {
+			const ID = this.byId("creating-id").getValue();
+			console.log(ID)
+			const Name = this.byId("creating-name").getValue();
+			console.log(Name);
+			const Email = this.byId("creating-email").getValue();
+			console.log(Email);
+			const City=this.byId("creating-city").getValue();
+			console.log(City);
+			const Occupation=this.byId("creating-occupation").getValue();
+			console.log(Occupation);
+			
+            fetch("http://localhost:3000/add-user", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					id: ID,
+					firstName: Name,
+					email: Email,
+					city: City,
+					occupation: Occupation
+				})
+		})
+		.then(response => {
+			if (!response.ok) {
+				throw new Error(`Failed to add user: ${response.statusText}`);
+			}
+			return response.json();
+		})
+		.then(data => {
+			MessageToast.show("User added successfully");
+			this._refreshModel();
+			this.byId("creating-dialog").close();
+		})
+		.catch(error => {
+			MessageToast.show(`Failed to add user: ${error.message}`);
+		});
+	},
 
 		onEdit: function (oEvent) {
 			const button = oEvent.getSource();
@@ -45,43 +68,15 @@ sap.ui.define([
 			this._selectedUserId = userData.id;
 			const dialog = this.byId("updatingDialog");
 			this.byId("updating-id").setValue(userData.id);
-			this.byId("updating-name").setValue(userData.name);
+			this.byId("updating-name").setValue(userData.firstName);
 			this.byId("updating-email").setValue(userData.email);
-			this.byId("updating-address").setValue(userData.address);
 			this.byId("updating-city").setValue(userData.city);
+			this.byId("updating-occupation").setValue(userData.occupation);
 			dialog.open();
 		},
 
 		onCancelUpdatedUser: function () {
 			this.byId("updatingDialog").close();
-		},
-
-		onSaveNewUser: function () {
-			const ID = this.byId("creating-id").getValue();
-			const Name = this.byId("creating-name").getValue();
-			const email = this.byId("creating-email").getValue();
-			const address = this.byId("creating-address").getValue();
-			const city = this.byId("creating-city").getValue();
-
-			fetch("http://localhost:3000/add-user", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					id: ID,
-					name: Name,
-					email: email,
-					address: address,
-					city: city
-				})
-			}).then(() => {
-				MessageToast.show("User added successfully");
-				this.byId("creating-dialog").close();
-				this._refreshModel();
-			}).catch(() => {
-				MessageToast.show("Error adding user");
-			});
 		},
 
 		onDelete: function (oEvent) {

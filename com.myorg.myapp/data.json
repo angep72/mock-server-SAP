@@ -1,28 +1,6 @@
 {
   "users": [
     {
-      "id": 2,
-      "firstName": "Emma",
-      "lastName": "Wilson",
-      "email": "emma.w@email.com",
-      "age": 34,
-      "city": "Los Angeles",
-      "occupation": "Marketing Manager",
-      "joinDate": "2023-05-22",
-      "isActive": true
-    },
-    {
-      "id": 3,
-      "firstName": "Michael",
-      "lastName": "Brown",
-      "email": "m.brown@email.com",
-      "age": 45,
-      "city": "Chicago",
-      "occupation": "Data Analyst",
-      "joinDate": "2023-01-10",
-      "isActive": false
-    },
-    {
       "id": 5,
       "firstName": "James",
       "lastName": "Miller",
@@ -197,6 +175,20 @@
       "occupation": "Operations Manager",
       "joinDate": "2024-04-15",
       "isActive": true
+    },
+    {
+      "id": 27,
+      "firstName": "Ange",
+      "email": "umunyana@gmail.com",
+      "city": "Kigali",
+      "occupation": "software"
+    },
+    {
+      "id": 28,
+      "firstName": "Pauline Umunyana",
+      "email": "umunyanaange885@gmail.com",
+      "city": "Kigali",
+      "occupation": "nurse"
     }
   ]
 }
