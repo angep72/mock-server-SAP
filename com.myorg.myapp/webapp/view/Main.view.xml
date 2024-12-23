@@ -64,10 +64,10 @@
                     <ColumnListItem>
                         <cells>
                             <Text text="{id}" />
-                            <Text text="{name}" />
+                            <Text text="{firstName}" />
                             <Text text="{email}" />
-                            <Text text="{address/street}" />
-                            <Text text="{address/city}" />
+                            <Text text="{age}" />
+                            <Text text="{city}" />
                             <HBox>
                                 <Button
                                     icon="sap-icon://edit"

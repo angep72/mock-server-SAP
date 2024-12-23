@@ -147,32 +147,49 @@ sap.ui.define([
 			oModel.loadData("http://localhost:3000/data", null, false);
 			this._originalData = oModel.getProperty("/users");
 		},
-		onSaveUpdatedUser:function(){
-			const userId = this._selectedUserId;
-			const name = this.byId("updating-name").getValue();
-			const email = this.byId("updating-email").getValue();
-			const address = this.byId("updating-address").getValue();	
-			const city = this.byId("updating-city").getValue();
-			fetch(`http://localhost:3000/update-user/${userId}`, {
-				method: "PUT",
+		onSaveUpdatedUser: function () {
+			const oView = this.getView();
+			const oModel = oView.getModel("usersModel");
+		
+			const oEditedSupplier = {
+				ID: oView.byId("updating-id").getValue(),
+				Name: oView.byId("updating-name").getValue(),
+				Email: oView.byId("updating-email").getValue(),
+				Address: oView.byId("updating-address").getValue(),
+				City: oView.byId("updating-city").getValue()
+			};
+		
+			// Log the request details for debugging
+			console.log('Updating user:', oEditedSupplier);
+		
+			// Verify your actual endpoint URL here
+			fetch(`http://localhost:3000/data/${oEditedSupplier.ID}`, { // Changed endpoint
+				method: 'PUT',
 				headers: {
-					"Content-Type": "application/json"
+					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({
-					name: name,
-					email: email,
-					address: address,
-					city: city
-				})
-			}).then((response)=>{
-				if(!response.ok){
-					throw new Error("Error updating user");
-				}
-				MessageBox.success("User updated successfully");
-				this.onCancelUpdatedUser();
-				this.getView().getModel().refresh(true)
+				body: JSON.stringify(oEditedSupplier)
 			})
-		}
+			.then(response => {
+				console.log('Response status:', response.status);
+				if (!response.ok) {
+					if (response.status === 404) {
+						throw new Error('User not found. Please check the ID.');
+					}
+					throw new Error(`Server error: ${response.status}`);
+				}
+				return response.json(); // Changed to .json() if server returns JSON
+			})
+			.then(data => {
+				// Update the model with new data
+			console.log('Updated user:', data);
+				oView.byId("editSupplierDialog").close();
+			})
+			.catch(error => {
+				console.error('Update error:', error);
+				MessageToast.show(`Error updating user: ${error.message}`);
+			});
+		},
 
 		
 	})

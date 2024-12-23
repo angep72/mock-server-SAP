@@ -43,133 +43,120 @@ app.get('/data', (req, res) => {
         }
     });
 });
-//Route t0 update user
 
-
-app.put('/update-user/:id', (req, res) => {
-    const userId =req.params.id;
-    const updatedUser = req.body;
-    // Read the existing data from the JSON file
-    fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading file:', err);
-            res.status(500).json({ message: 'Error reading data file' });
-            return;
+//Route to get one user
+app.get('/data/:id', (req, res) => {
+    const userId = parseInt(req.params.id, 10); // Get the ID from the URL parameter
+    const filePath = path.join(__dirname, 'data.json'); // Path to your JSON file
+    
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        return res.status(500).send('Error reading file');
+      }
+  
+      try {
+        const jsonData = JSON.parse(data);
+        
+        const user = jsonData.users.find(u => u.id === userId);
+        
+        if (user) {
+          res.json(user);
+        } else {
+          res.status(404).send('User not found');
         }
-        try {
+      } catch (err) {
+        res.status(500).send('Error parsing JSON data');
+      }
+    });
+  });
+
+
+  //Route to post another user 
+    app.post('/add-user', (req, res) => {
+        const newUser = req.body;
+        const filePath = path.join(__dirname, 'data.json');
+        fs.readFile(filePath, 'utf8', (err, data) => {
+          if (err) {
+            return res.status(500).send('Error reading file');
+          }
+      
+          try {
             const jsonData = JSON.parse(data);
-            const userIndex = jsonData.users.findIndex((user) => user.id == userId);
-            if (userIndex === -1) {
-                return res.status(404).json({ message: 'User not found' });
-            }
-            // Update the user details
-            jsonData.users[userIndex] = updatedUser;
-            // Write the updated data back to the file
-            fs.writeFile(
-                path.join(__dirname, 'data.json'),
-                JSON.stringify(jsonData, null, 2),
-                (writeErr) => {
-                    if (writeErr) {
-                        console.error('Error writing file:', writeErr);
-                        res.status(500).json({ message: 'Error saving data' });
-                        return;
-                    }
-                    res.json({ message: 'User updated successfully' });
-                }
-            );
-        } catch (parseError) {
-            console.error('Error parsing JSON:', parseError);
-            res.status(500).json({ message: 'Error parsing JSON data' });
-        }
-    });    
-
-});
-
-    // Read the existing data from the JSON file
-// Route to add a user to the JSON file (POST request)
-app.post('/add-user', (req, res) => {
-    const newUser = req.body;
-
-    // Read the existing data from the JSON file
-    fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading file:', err);
-            res.status(500).json({ message: 'Error reading data file' });
-            return;
-        }
-
-        try {
-            const jsonData = JSON.parse(data);
-            // Add the new user to the 'users' array
+            const lastId = jsonData.users[jsonData.users.length - 1].id;
+            newUser.id = lastId + 1;
             jsonData.users.push(newUser);
+      
+            fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (writeErr) => {
+              if (writeErr) {
+                return res.status(500).send('Error writing file');
+              }
+              res.status(201).json(newUser);
+            });
+          } catch (parseErr) {
+            res.status(500).send('Error parsing JSON data');
+          }
+        })
+    })
 
-            // Save the updated data back to the file
-            fs.writeFile(
-                path.join(__dirname, 'data.json'),
-                JSON.stringify(jsonData, null, 2),
-                (writeErr) => {
-                    if (writeErr) {
-                        console.error('Error writing file:', writeErr);
-                        res.status(500).json({ message: 'Error saving data' });
-                        return;
-                    }
-                    res.status(201).json({ message: 'User added successfully' });
-                }
-            );
-        } catch (parseError) {
-            console.error('Error parsing JSON:', parseError);
-            res.status(500).json({ message: 'Error parsing JSON data' });
-        }
-    });
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ message: 'Something went wrong!' });
-});
-app.delete('/delete-user/:id', (req, res) => {
-    const userId = parseInt(req.params.id, 10);
-
-    // Check for valid userId
-    if (isNaN(userId)) {
-        return res.status(400).json({ message: 'Invalid user ID' });
-    }
-
-    fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading file:', err);
-            return res.status(500).json({ message: 'Error reading data file' });
-        }
-        try {
+    //route to update a user
+    app.put('/data/:id', (req, res) => {
+        //updating the user id 
+        const userId = parseInt(req.params.id, 10);
+        const updatedUser = req.body;
+        const filePath = path.join(__dirname, 'data.json');
+        fs.readFile(filePath, 'utf8', (err, data) => {
+          if (err) {
+            return res.status(500).send('Error reading file');
+          }
+      
+          try {
             const jsonData = JSON.parse(data);
-            const userIndex = jsonData.users.findIndex((user) => user.id === userId);
-
+            const userIndex = jsonData.users.findIndex(u => u.id === userId);
             if (userIndex === -1) {
-                return res.status(404).json({ message: 'User not found' });
+              return res.status(404).send('User not found');
             }
-
-            // Remove the user from the 'users' array
+            jsonData.users[userIndex] = updatedUser;
+      
+            fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (writeErr) => {
+              if (writeErr) {
+                return res.status(500).send('Error writing file');
+              }
+              res.json(updatedUser);
+            });
+          } catch (parseErr) {
+            res.status(500).send('Error parsing JSON data');
+          }
+        });
+      });
+      //Route to delete the user
+      app.delete('/delete/:id', (req, res) => {
+        const userId = parseInt(req.params.id, 10);
+        const filePath = path.join(__dirname, 'data.json');
+        fs.readFile(filePath, 'utf8', (err, data) => {
+          if (err) {
+            return res.status(500).send('Error reading file');
+          }
+      
+          try {
+            const jsonData = JSON.parse(data);
+            const userIndex = jsonData.users.findIndex(u => u.id === userId);
+            if (userIndex === -1) {
+              return res.status(404).send('User not found');
+            }
             jsonData.users.splice(userIndex, 1);
+      
+            fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (writeErr) => {
+              if (writeErr) {
+                return res.status(500).send('Error writing file');
+              }
+              res.json('User deleted');
+            });
+          } catch (parseErr) {
+            res.status(500).send('Error parsing JSON data');
+          }
+        });
+      })
 
-            // Write the updated data back to the file
-            fs.writeFile(
-                path.join(__dirname, 'data.json'),
-                JSON.stringify(jsonData, null, 2),
-                (writeErr) => {
-                    if (writeErr) {
-                        console.error('Error writing file:', writeErr);
-                        return res.status(500).json({ message: 'Error saving data' });
-                    }
-                    return res.json({ message: 'User deleted successfully' });
-                }
-            );
-        } catch (parseError) {
-            console.error('Error parsing JSON:', parseError);
-            return res.status(500).json({ message: 'Error parsing JSON data' });
-        }
-    });
-}); 
 
 // Start the server
 app.listen(PORT, () => {
