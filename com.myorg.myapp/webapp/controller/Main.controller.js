@@ -144,7 +144,6 @@ sap.ui.define([
 		},
 		onSaveUpdatedUser: function () {
 			const oView = this.getView();
-			const oModel = oView.getModel("usersModel");
 		
 			const oEditedSupplier = {
 				ID: oView.byId("updating-id").getValue(),
