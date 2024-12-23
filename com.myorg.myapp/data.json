@@ -23,13 +23,6 @@
       "isActive": false
     },
     {
-      "ID": "4",
-      "Name": "name",
-      "Email": "sarah.d@email.com",
-      "Address": "",
-      "City": "Boston"
-    },
-    {
       "id": 5,
       "firstName": "James",
       "lastName": "Miller",
