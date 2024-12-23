@@ -145,7 +145,7 @@
                     valueStateText="{i18n>updatingDialogIdValueStateText}"
                     change="validateInputId"
                 />
-                <Label text="{i18n>updatingDialogNameLabel}" />
+                <Label text="Up-dating user name" />
                 <Input
                     id="updating-name"
                     valueStateText="{i18n>updatingDialogNameValueStateText}"
@@ -157,15 +157,15 @@
                     valueStateText="{i18n>updatingDialogEmailValueStateText}"
                     change="validateInputEmail"
                 />
-                <Label text="{i18n>updatingDialogAddressLabel}" />
+                <Label text="Updating-City" />
                 <Input
-                    id="updating-address"
+                    id="updating-city"
                     valueStateText="{i18n>updatingDialogAddressValueStateText}"
                     change="validateInputAddress"
                 />
-                <Label text="{i18n>updatingDialogCityLabel}" />
+                <Label text="Updating-occupation" />
                 <Input
-                    id="updating-city"
+                    id="updating-occupation"
                     valueStateText="{i18n>updatingDialogCityValueStateText}"
                     change="validateInputCity"
                 />

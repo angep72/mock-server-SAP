@@ -176,14 +176,19 @@
       "joinDate": "2024-04-15",
       "isActive": true
     },
-  
-    
     {
       "id": 27,
       "firstName": "Ange",
       "email": "umunyana@gmail.com",
       "city": "Kigali",
       "occupation": "software"
+    },
+    {
+      "id": 28,
+      "firstName": "Pauline Umunyana",
+      "email": "umunyanaange885@gmail.com",
+      "city": "Kigali",
+      "occupation": "nurse"
     }
   ]
 }
