@@ -27,38 +27,37 @@ sap.ui.define([
 			const Email = this.byId("creating-email").getValue();
 			console.log(Email);
 			const City=this.byId("creating-city").getValue();
-			console.log(City)
+			console.log(City);
+			const Occupation=this.byId("creating-occupation").getValue();
+			console.log(Occupation);
 			
-        //     fetch("http://localhost:3000/add-user", {
-		// 		method: "POST",
-		// 		headers: {
-		// 			"Content-Type": "application/json"
-		// 		},
-		// 		body: JSON.stringify({
-		// 			ID: ID,
-		// 			FirstName: fName,
-		// 			LastName: lName,
-		// 			Email: email,
-		// 			Age: age,
-		// 			City: city,
-		// 			Occupation: occupation,
-		// 			Activity: activity
-		// 		})
-		// })
-		// .then(response => {
-		// 	if (!response.ok) {
-		// 		throw new Error(`Failed to add user: ${response.statusText}`);
-		// 	}
-		// 	return response.json();
-		// })
-		// .then(data => {
-		// 	MessageToast.show("User added successfully");
-		// 	this._refreshModel();
-		// 	this.byId("creating-dialog").close();
-		// })
-		// .catch(error => {
-		// 	MessageToast.show(`Failed to add user: ${error.message}`);
-		// });
+            fetch("http://localhost:3000/add-user", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					id: ID,
+					firstName: Name,
+					email: Email,
+					city: City,
+					occupation: Occupation
+				})
+		})
+		.then(response => {
+			if (!response.ok) {
+				throw new Error(`Failed to add user: ${response.statusText}`);
+			}
+			return response.json();
+		})
+		.then(data => {
+			MessageToast.show("User added successfully");
+			this._refreshModel();
+			this.byId("creating-dialog").close();
+		})
+		.catch(error => {
+			MessageToast.show(`Failed to add user: ${error.message}`);
+		});
 	},
 
 		onEdit: function (oEvent) {
