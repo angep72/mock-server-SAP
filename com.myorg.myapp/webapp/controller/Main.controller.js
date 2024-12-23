@@ -20,39 +20,40 @@ sap.ui.define([
 			this.byId("creating-dialog").close();
 		},
 		onSaveNewUser: function () {
-			const oView = this.getView();
-			const oModel = oView.getModel(); // Ensure the correct model is used
-			const oNewUser = {
-				id: Number(oView.byId("creating-id").getValue()), // Ensure ID is a number
-				name: oView.byId("creating-name").getValue(),
-				email: oView.byId("creating-email").getValue(),
-				address: oView.byId("creating-address").getValue(),
-				city: oView.byId("creating-city").getValue()
-			};
-		
-			fetch('http://localhost:3000/add-user', {
+			const ID = this.byId("creating-id").getValue();
+			const Name = this.byId("creating-name").getValue();
+			const Email = this.byId("creating-email").getValue();
+			const Address = this.byId("creating-address").getValue();
+			const City = this.byId("creating-city").getValue();
+
+			fetch("http://localhost:3000/add-user", {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify(oNewUser)
+				body: JSON.stringify({
+					id: ID,
+					name: Name,
+					email: Email,
+					address: Address,
+					city: City
+				})
 			})
-			.then((response) => {
-				if (!response.ok) {
-					return response.text().then((errorText) => {
-						throw new Error(`HTTP error! Status: ${response.status} - ${errorText}`);
-					});
-				}
-				return response.json(); // Parse the response JSON
-			})
-			.then((data) => {
-				MessageBox.success("User created successfully!");
-				this.byId("creating-dialog").close();
-				this._refreshModel(); // Refresh the model to include the new user
-			})
-			.catch((error) => {
-				MessageBox.error(`Error creating user: ${error.message}`);
-			});
+				.then(response => {
+					if (!response.ok) {
+						throw new Error(`Server error: ${response.status}`);
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log('Created user:', data);
+					this._refreshModel();
+					this.byId("creating-dialog").close();
+				})
+				.catch(error => {
+					console.error('Create error:', error);
+					MessageToast.show(`Error creating user: ${error.message}`);
+				});
 		},
 
 		onEdit: function (oEvent) {

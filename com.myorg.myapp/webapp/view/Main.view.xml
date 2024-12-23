@@ -42,21 +42,25 @@
 
                 <columns>
                     <Column>
-                        <Text text="{i18n>supplierID}" />
+                        <Text text="Users ID" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>UsersName}" />
+                        <Text text="UserName" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>UsersEmail}" />
+                        <Text text="Email" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>usersaddress}" />
+                        <Text text="City" />
                     </Column>
                     <Column>
-                        <Text text="{i18n>usersCity}" />
+                        <Text text="Occupation" />
                     </Column>
+                   
                     <Column>
+                    <Text text="Activity"/>
+                    </Column>
+                     <Column>
                         <Text text="{i18n>actionsicon}" />
                     </Column>
                 </columns>
@@ -64,10 +68,11 @@
                     <ColumnListItem>
                         <cells>
                             <Text text="{id}" />
-                            <Text text="{firstName}" />
-                            <Text text="{email}" />
-                            <Text text="{age}" />
+                            <Text text="{firstName} {lastName}" />
+                            <Text text="{email} {age}" />
                             <Text text="{city}" />
+                            <Text text="{occupation}" />
+                            <Text text="{isActive}"/>
                             <HBox>
                                 <Button
                                     icon="sap-icon://edit"
@@ -113,6 +118,7 @@
                 <Label text="{i18n>creatingaddresslabel}" />
                 <Input
                     id="creating-address"
+                    type="Number"
                     valueStateText="{i18n>creatingaddressvalueStateText}"
                     change="validateInputAddress"
                 />

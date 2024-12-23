@@ -213,6 +213,27 @@
       "Address": "321 ",
       "City": "Kigali",
       "id": 22
+    },
+    {
+      "id": 23,
+      "name": "Mirellie",
+      "email": "umunyana@gmail.com",
+      "address": "321 ",
+      "city": "Kigali"
+    },
+    {
+      "id": 24,
+      "name": "Habimana",
+      "email": "umunyana@gmail.com",
+      "address": "321",
+      "city": "Kigali"
+    },
+    {
+      "id": 25,
+      "name": "Ange",
+      "email": "umunyana@gmail.com",
+      "address": "23",
+      "city": "Kigali"
     }
   ]
 }
