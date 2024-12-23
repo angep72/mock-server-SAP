@@ -149,8 +149,8 @@ sap.ui.define([
 				id: oView.byId("updating-id").getValue(),
 				firstName: oView.byId("updating-name").getValue(),
 				email: oView.byId("updating-email").getValue(),
-				city: oView.byId("updating-address").getValue(),
-				occupation: oView.byId("updating-city").getValue()
+				city: oView.byId("updating-city").getValue(),
+				occupation: oView.byId("updating-occupation").getValue()
 			};
 		
 			// Log the request details for debugging
