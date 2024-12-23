@@ -43,8 +43,32 @@ app.get('/data', (req, res) => {
         }
     });
 });
-//Route t0 update user
 
+//Route to get one user
+app.get('/data/:id', (req, res) => {
+    const userId = parseInt(req.params.id, 10); // Get the ID from the URL parameter
+    const filePath = path.join(__dirname, 'data.json'); // Path to your JSON file
+    
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        return res.status(500).send('Error reading file');
+      }
+  
+      try {
+        const jsonData = JSON.parse(data);
+        
+        const user = jsonData.users.find(u => u.id === userId);
+        
+        if (user) {
+          res.json(user);
+        } else {
+          res.status(404).send('User not found');
+        }
+      } catch (err) {
+        res.status(500).send('Error parsing JSON data');
+      }
+    });
+  });
 
 
 
