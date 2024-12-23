@@ -56,10 +56,6 @@
                     <Column>
                         <Text text="Occupation" />
                     </Column>
-                   
-                    <Column>
-                    <Text text="Activity"/>
-                    </Column>
                      <Column>
                         <Text text="{i18n>actionsicon}" />
                     </Column>
@@ -68,23 +64,19 @@
                     <ColumnListItem>
                         <cells>
                             <Text text="{id}" />
-                            <Text text="{firstName} {lastName}" />
-                            <Text text="{email} {age}" />
+                            <Text text="{firstName}" />
+                            <Text text="{email}" />
                             <Text text="{city}" />
                             <Text text="{occupation}" />
-                            <Text text="{isActive}"/>
                             <HBox>
-                                <Button
-                                    icon="sap-icon://edit"
-                                    press="onEdit"
-                                    type="Transparent"
-                                />
-                                <Button
-                                    icon="sap-icon://delete"
-                                    press="onDelete"
-                                    type="Transparent"
-                                />
-                            </HBox>
+                            <Button
+                                icon="sap-icon://edit"
+                                press="onEdit"
+                            />
+                            <Button
+                                icon="sap-icon://delete"
+                                press="onDelete"
+                            /></HBox>
                         </cells>
                     </ColumnListItem>
                 </items>
@@ -96,58 +88,38 @@
             class="sapUiContentPadding"
         >
             <VBox>
-                <Label text="{i18n>creatingidlabel}" />
+            <Label text="UserID" />
                 <Input
                     id="creating-id"
                     type="Number"
-                    valueStateText="{i18n>creatingidvalueStateText}"
-                    change="validateProductId"
+                    valueStateText="{i18n>creatingDialogIdValueStateText}"
+                    change="validateInputId"
                 />
-                <Label text="firstName" />
+                <Label text="Name" />
                 <Input
-                    id="creating-fname"
-                    valueStateText="This should be a valid name"
+                    id="creating-name"
+                    valueStateText="{i18n>creatingDialogNameValueStateText}"
                     change="validateInputName"
                 />
-                <Label text="lastName" />
-                <Input
-                    id="creating-lname"
-                    valueStateText="This should be a valid name"
-                    change="validateInputName"/>
-
-
-                <Label text="{i18n>creatingemaillabel}" />
+                <Label text="User email" />
                 <Input
                     id="creating-email"
-                    valueStateText="{i18n>creatingemailvalueStateText}"
+                    valueStateText="{i18n>creatingDialogEmailValueStateText}"
                     change="validateInputEmail"
                 />
-
-                <Label text="Age"/>
+                <Label text="City" />
                 <Input
-                    id="creating-age"
-                    type="Number"
-                    valueStateText="this should be a valid age"
+                    id="creating-City"
+                    valueStateText="{i18n>creatingDialogAddressValueStateText}"
                     change="validateInputAddress"
-                />
-
-                <Label text="{i18n>creatingcitylabel}" />
-                <Input
-                    id="creating-city"
-                    valueStateText="{i18n>creatingcityvalueStateText}"
-                    change="validateInputCity"
                 />
                 <Label text="Occupation" />
                 <Input
                     id="creating-occupation"
-                    valueStateText="This should be a valid occupation"
-                    change="validateInputCity"/>
-                <Label text="Activity" />
-                <Input
-                    id="creating-activity"
-                    valueStateText="This should be a valid activity"
-                    change="validateInputCity"/>
-            </VBox>
+                    valueStateText="{i18n>creatingDialogCityValueStateText}"
+                    change="validateInputCity"
+                />
+               </VBox>
             <beginButton>
                 <Button
                     text="{i18n>creatingDialogSaveButtonText}"
