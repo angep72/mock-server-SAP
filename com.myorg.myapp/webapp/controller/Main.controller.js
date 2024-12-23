@@ -21,43 +21,42 @@ sap.ui.define([
 		},
 		onSaveNewUser: function () {
 			const ID = this.byId("creating-id").getValue();
-			// const fName= this.byId("creating-fName").getValue();
-			const lName= this.byId("creating-lName").getValue();
-			const email= this.byId("creating-email").getValue();
-			const age= this.byId("creating-age").getValue();
-			const city= this.byId("creating-city").getValue();
-			const occupation= this.byId("creating-occupation").getValue();
-			const activity= this.byId("creating-activity").getValue();
-            fetch("http://localhost:3000/add-user", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					ID: ID,
-					FirstName: fName,
-					LastName: lName,
-					Email: email,
-					Age: age,
-					City: city,
-					Occupation: occupation,
-					Activity: activity
-				})
-		})
-		.then(response => {
-			if (!response.ok) {
-				throw new Error(`Failed to add user: ${response.statusText}`);
-			}
-			return response.json();
-		})
-		.then(data => {
-			MessageToast.show("User added successfully");
-			this._refreshModel();
-			this.byId("creating-dialog").close();
-		})
-		.catch(error => {
-			MessageToast.show(`Failed to add user: ${error.message}`);
-		});
+			console.log(ID)
+			const Name = this.byId("creating-name").getValue();
+			console.log(Name);
+			const Email = this.byId("creating-email").getValue();
+			console.log(Email);
+			
+        //     fetch("http://localhost:3000/add-user", {
+		// 		method: "POST",
+		// 		headers: {
+		// 			"Content-Type": "application/json"
+		// 		},
+		// 		body: JSON.stringify({
+		// 			ID: ID,
+		// 			FirstName: fName,
+		// 			LastName: lName,
+		// 			Email: email,
+		// 			Age: age,
+		// 			City: city,
+		// 			Occupation: occupation,
+		// 			Activity: activity
+		// 		})
+		// })
+		// .then(response => {
+		// 	if (!response.ok) {
+		// 		throw new Error(`Failed to add user: ${response.statusText}`);
+		// 	}
+		// 	return response.json();
+		// })
+		// .then(data => {
+		// 	MessageToast.show("User added successfully");
+		// 	this._refreshModel();
+		// 	this.byId("creating-dialog").close();
+		// })
+		// .catch(error => {
+		// 	MessageToast.show(`Failed to add user: ${error.message}`);
+		// });
 	},
 
 		onEdit: function (oEvent) {
