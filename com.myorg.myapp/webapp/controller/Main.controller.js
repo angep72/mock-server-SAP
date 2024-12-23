@@ -146,11 +146,11 @@ sap.ui.define([
 			const oView = this.getView();
 		
 			const oEditedSupplier = {
-				ID: oView.byId("updating-id").getValue(),
-				Name: oView.byId("updating-name").getValue(),
-				Email: oView.byId("updating-email").getValue(),
-				Address: oView.byId("updating-address").getValue(),
-				City: oView.byId("updating-city").getValue()
+				id: oView.byId("updating-id").getValue(),
+				firstName: oView.byId("updating-name").getValue(),
+				email: oView.byId("updating-email").getValue(),
+				city: oView.byId("updating-address").getValue(),
+				occupation: oView.byId("updating-city").getValue()
 			};
 		
 			// Log the request details for debugging
