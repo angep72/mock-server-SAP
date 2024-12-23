@@ -109,10 +109,9 @@
                 />
                 <Label text="City" />
                 <Input
-                    id="creating-City"
-                    valueStateText="{i18n>creatingDialogAddressValueStateText}"
-                    change="validateInputAddress"
-                />
+                    id="creating-city"
+                    valueStateText="{i18n>creatingDialogCityValueStateText}"
+                    change="validateInputCity"/>
                 <Label text="Occupation" />
                 <Input
                     id="creating-occupation"
