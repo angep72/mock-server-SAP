@@ -1,89 +1,220 @@
 {
   "users": [
     {
-      "id": 2879,
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "address": "[object Object]",
-      "city": ""
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@email.com",
+      "age": 28,
+      "city": "New York",
+      "occupation": "Software Engineer",
+      "joinDate": "2023-03-15",
+      "isActive": true
     },
     {
-      "name": "Alice ",
-      "email": "alice.johnson@example.com",
-      "address": "[object Object]",
-      "city": ""
+      "id": 2,
+      "firstName": "Emma",
+      "lastName": "Wilson",
+      "email": "emma.w@email.com",
+      "age": 34,
+      "city": "Los Angeles",
+      "occupation": "Marketing Manager",
+      "joinDate": "2023-05-22",
+      "isActive": true
     },
     {
-      "name": "Pauline Ange",
-      "email": "umunyana@gmail.com",
-      "address": "321 st John",
-      "city": "Kigali"
+      "id": 3,
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "email": "m.brown@email.com",
+      "age": 45,
+      "city": "Chicago",
+      "occupation": "Data Analyst",
+      "joinDate": "2023-01-10",
+      "isActive": false
+    },
+    {
+      "ID": "4",
+      "Name": "name",
+      "Email": "sarah.d@email.com",
+      "Address": "",
+      "City": "Boston"
     },
     {
       "id": 5,
-      "name": "christmas",
-      "email": "ange@gmail.com",
-      "address": "321 st John",
-      "city": "Kigali"
+      "firstName": "James",
+      "lastName": "Miller",
+      "email": "j.miller@email.com",
+      "age": 39,
+      "city": "Seattle",
+      "occupation": "Product Manager",
+      "joinDate": "2023-02-28",
+      "isActive": true
     },
     {
-      "name": "Richard",
-      "email": "ange@gmail.com",
-      "address": "321 st John",
-      "city": "Kigali"
+      "id": 6,
+      "firstName": "Lisa",
+      "lastName": "Anderson",
+      "email": "l.anderson@email.com",
+      "age": 27,
+      "city": "Austin",
+      "occupation": "Content Writer",
+      "joinDate": "2023-09-15",
+      "isActive": true
     },
     {
-      "id": 23,
-      "postId": 4,
-      "userId": 3,
-      "body": "I can't wait to visit! Your post has inspired me alot ."
+      "id": 7,
+      "firstName": "Robert",
+      "lastName": "Taylor",
+      "email": "rob.t@email.com",
+      "age": 42,
+      "city": "Denver",
+      "occupation": "Sales Director",
+      "joinDate": "2023-04-11",
+      "isActive": true
     },
     {
-      "id": "45",
-      "name": "Paulin",
-      "email": "umunyana@gmail.com",
-      "address": "321 st John",
-      "city": "Kigali"
-    }
-  ],
-  "posts": [
-    {
-      "id": 1,
-      "userId": 1,
-      "title": "Exploring the beauty of New York",
-      "body": "New York is a wonderful city filled with amazing attractions. You can explore Central Park, Times Square, and the Statue of Liberty."
+      "id": 8,
+      "firstName": "Emily",
+      "lastName": "White",
+      "email": "e.white@email.com",
+      "age": 29,
+      "city": "Portland",
+      "occupation": "Graphic Designer",
+      "joinDate": "2023-06-07",
+      "isActive": false
     },
     {
-      "id": 2,
-      "userId": 2,
-      "title": "A day in Los Angeles",
-      "body": "Los Angeles is known for its beautiful beaches and amazing weather. Take a trip to Santa Monica, Venice Beach, and enjoy the sunny days."
+      "id": 9,
+      "firstName": "David",
+      "lastName": "Martinez",
+      "email": "d.martinez@email.com",
+      "age": 36,
+      "city": "Miami",
+      "occupation": "Financial Analyst",
+      "joinDate": "2023-08-22",
+      "isActive": true
     },
     {
-      "id": 3,
-      "userId": 3,
-      "title": "Winter in Chicago",
-      "body": "Chicago winters can be harsh, but the snow-covered streets and winter activities are definitely worth it. Don't forget your coat!"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "postId": 1,
-      "userId": 2,
-      "body": "I love New York! Definitely need to visit again soon."
+      "id": 10,
+      "firstName": "Jennifer",
+      "lastName": "Garcia",
+      "email": "j.garcia@email.com",
+      "age": 33,
+      "city": "San Francisco",
+      "occupation": "HR Manager",
+      "joinDate": "2023-10-30",
+      "isActive": true
     },
     {
-      "id": 2,
-      "postId": 1,
-      "userId": 3,
-      "body": "I can't wait to visit! Your post has inspired me."
+      "id": 11,
+      "firstName": "William",
+      "lastName": "Clark",
+      "email": "w.clark@email.com",
+      "age": 44,
+      "city": "Phoenix",
+      "occupation": "Architect",
+      "joinDate": "2023-11-15",
+      "isActive": true
     },
     {
-      "id": 3,
-      "postId": 2,
-      "userId": 1,
-      "body": "LA is amazing! I love the beaches."
+      "id": 12,
+      "firstName": "Maria",
+      "lastName": "Rodriguez",
+      "email": "m.rodriguez@email.com",
+      "age": 30,
+      "city": "Houston",
+      "occupation": "Project Manager",
+      "joinDate": "2023-12-01",
+      "isActive": true
+    },
+    {
+      "id": 13,
+      "firstName": "Thomas",
+      "lastName": "Lee",
+      "email": "t.lee@email.com",
+      "age": 38,
+      "city": "San Diego",
+      "occupation": "Systems Analyst",
+      "joinDate": "2024-01-05",
+      "isActive": false
+    },
+    {
+      "id": 14,
+      "firstName": "Patricia",
+      "lastName": "Wilson",
+      "email": "p.wilson@email.com",
+      "age": 41,
+      "city": "Dallas",
+      "occupation": "Marketing Director",
+      "joinDate": "2024-01-20",
+      "isActive": true
+    },
+    {
+      "id": 15,
+      "firstName": "Christopher",
+      "lastName": "Moore",
+      "email": "c.moore@email.com",
+      "age": 35,
+      "city": "Atlanta",
+      "occupation": "Business Analyst",
+      "joinDate": "2024-02-10",
+      "isActive": true
+    },
+    {
+      "id": 16,
+      "firstName": "Elizabeth",
+      "lastName": "Taylor",
+      "email": "e.taylor@email.com",
+      "age": 32,
+      "city": "Minneapolis",
+      "occupation": "Software Developer",
+      "joinDate": "2024-02-28",
+      "isActive": true
+    },
+    {
+      "id": 17,
+      "firstName": "Kevin",
+      "lastName": "Anderson",
+      "email": "k.anderson@email.com",
+      "age": 37,
+      "city": "Detroit",
+      "occupation": "Data Scientist",
+      "joinDate": "2024-03-15",
+      "isActive": true
+    },
+    {
+      "id": 18,
+      "firstName": "Susan",
+      "lastName": "Martin",
+      "email": "s.martin@email.com",
+      "age": 43,
+      "city": "Philadelphia",
+      "occupation": "Product Designer",
+      "joinDate": "2024-03-30",
+      "isActive": false
+    },
+    {
+      "id": 19,
+      "firstName": "George",
+      "lastName": "Thompson",
+      "email": "g.thompson@email.com",
+      "age": 40,
+      "city": "Las Vegas",
+      "occupation": "Sales Manager",
+      "joinDate": "2024-04-10",
+      "isActive": true
+    },
+    {
+      "id": 20,
+      "firstName": "Nancy",
+      "lastName": "Johnson",
+      "email": "n.johnson@email.com",
+      "age": 46,
+      "city": "Sacramento",
+      "occupation": "Operations Manager",
+      "joinDate": "2024-04-15",
+      "isActive": true
     }
   ]
 }

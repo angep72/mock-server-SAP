@@ -64,7 +64,7 @@
                     <ColumnListItem>
                         <cells>
                             <Text text="{id}" />
-                            <Text text="{name}" />
+                            <Text text="{firstName}" />
                             <Text text="{email}" />
                             <Text text="{address/street}" />
                             <Text text="{address/city}" />
