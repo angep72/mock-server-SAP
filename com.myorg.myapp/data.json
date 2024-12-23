@@ -197,6 +197,22 @@
       "occupation": "Operations Manager",
       "joinDate": "2024-04-15",
       "isActive": true
+    },
+    {
+      "ID": "23",
+      "Name": "Arsene",
+      "Email": "umunyana@gmail.com",
+      "Address": "321 ",
+      "City": "Kigali",
+      "id": 21
+    },
+    {
+      "ID": "21",
+      "Name": "ars",
+      "Email": "umunyana@gmail.com",
+      "Address": "321 ",
+      "City": "Kigali",
+      "id": 22
     }
   ]
 }

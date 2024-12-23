@@ -12,29 +12,47 @@ sap.ui.define([
 			this._originalData = oModel.getProperty("/users");
 		},
 
-		validateProductId: function (oEvent) {
-			const input = oEvent.getSource();
-			const value = input.getValue();
-
-			if (!/^\d+$/.test(value)) {
-				input.setValueState("Error");
-				return false;
-			}
-
-			input.setValueState("None");
-			return true;
-		},
-
-		onPress: function () {
-			MessageToast.show("Hello World");
-		},
-
 		onAdd: function () {
 			this.byId("creating-dialog").open();
 		},
 
 		onCancelNewUser: function () {
 			this.byId("creating-dialog").close();
+		},
+		onSaveNewUser: function () {
+			const oView = this.getView();
+			const oModel = oView.getModel(); // Ensure the correct model is used
+			const oNewUser = {
+				id: Number(oView.byId("creating-id").getValue()), // Ensure ID is a number
+				name: oView.byId("creating-name").getValue(),
+				email: oView.byId("creating-email").getValue(),
+				address: oView.byId("creating-address").getValue(),
+				city: oView.byId("creating-city").getValue()
+			};
+		
+			fetch('http://localhost:3000/add-user', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(oNewUser)
+			})
+			.then((response) => {
+				if (!response.ok) {
+					return response.text().then((errorText) => {
+						throw new Error(`HTTP error! Status: ${response.status} - ${errorText}`);
+					});
+				}
+				return response.json(); // Parse the response JSON
+			})
+			.then((data) => {
+				MessageBox.success("User created successfully!");
+				this.byId("creating-dialog").close();
+				this._refreshModel(); // Refresh the model to include the new user
+			})
+			.catch((error) => {
+				MessageBox.error(`Error creating user: ${error.message}`);
+			});
 		},
 
 		onEdit: function (oEvent) {
@@ -54,34 +72,6 @@ sap.ui.define([
 
 		onCancelUpdatedUser: function () {
 			this.byId("updatingDialog").close();
-		},
-
-		onSaveNewUser: function () {
-			const ID = this.byId("creating-id").getValue();
-			const Name = this.byId("creating-name").getValue();
-			const email = this.byId("creating-email").getValue();
-			const address = this.byId("creating-address").getValue();
-			const city = this.byId("creating-city").getValue();
-
-			fetch("http://localhost:3000/add-user", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					id: ID,
-					name: Name,
-					email: email,
-					address: address,
-					city: city
-				})
-			}).then(() => {
-				MessageToast.show("User added successfully");
-				this.byId("creating-dialog").close();
-				this._refreshModel();
-			}).catch(() => {
-				MessageToast.show("Error adding user");
-			});
 		},
 
 		onDelete: function (oEvent) {
