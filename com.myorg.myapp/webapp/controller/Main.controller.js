@@ -144,45 +144,41 @@ sap.ui.define([
 		},
 		onSaveUpdatedUser: function () {
 			const oView = this.getView();
-		
+		    const pressedID = this._selectedUserId;
 			const oEditedSupplier = {
-				ID: oView.byId("updating-id").getValue(),
-				Name: oView.byId("updating-name").getValue(),
-				Email: oView.byId("updating-email").getValue(),
-				Address: oView.byId("updating-address").getValue(),
-				City: oView.byId("updating-city").getValue()
+				id: oView.byId("updating-id").getValue(),
+				firstName: oView.byId("updating-name").getValue(),
+				email: oView.byId("updating-email").getValue(),
+				city: oView.byId("updating-city").getValue(),
+				occupation: oView.byId("updating-occupation").getValue()
 			};
 		
 			// Log the request details for debugging
-			console.log('Updating user:', oEditedSupplier);
+			 console.log('Updating user:', oEditedSupplier);
 		
-			// Verify your actual endpoint URL here
-			fetch(`http://localhost:3000/data/${oEditedSupplier.ID}`, { // Changed endpoint
-				method: 'PUT',
+			// Send the request to the server
+			fetch(`http://localhost:3000/data/${pressedID}`,{
+				method: "PUT",
 				headers: {
-					'Content-Type': 'application/json'
+					"Content-Type": "application/json"
 				},
 				body: JSON.stringify(oEditedSupplier)
 			})
 			.then(response => {
-				console.log('Response status:', response.status);
 				if (!response.ok) {
-					if (response.status === 404) {
-						throw new Error('User not found. Please check the ID.');
-					}
-					throw new Error(`Server error: ${response.status}`);
+					throw new Error(`Failed to update user: ${response.statusText}`);
 				}
-				return response.json(); // Changed to .json() if server returns JSON
+				return response.json();
 			})
 			.then(data => {
-				// Update the model with new data
-			console.log('Updated user:', data);
-				oView.byId("editSupplierDialog").close();
+				MessageToast.show("User updated successfully");
+				this._refreshModel();
+				this.byId("updatingDialog").close();
 			})
 			.catch(error => {
-				console.error('Update error:', error);
-				MessageToast.show(`Error updating user: ${error.message}`);
+				MessageToast.show(`Failed to update user: ${error.message}`);
 			});
+
 		},
 
 		
