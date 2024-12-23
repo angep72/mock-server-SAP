@@ -128,6 +128,34 @@ app.get('/data/:id', (req, res) => {
           }
         });
       });
+      //Route to delete the user
+      app.delete('/delete/:id', (req, res) => {
+        const userId = parseInt(req.params.id, 10);
+        const filePath = path.join(__dirname, 'data.json');
+        fs.readFile(filePath, 'utf8', (err, data) => {
+          if (err) {
+            return res.status(500).send('Error reading file');
+          }
+      
+          try {
+            const jsonData = JSON.parse(data);
+            const userIndex = jsonData.users.findIndex(u => u.id === userId);
+            if (userIndex === -1) {
+              return res.status(404).send('User not found');
+            }
+            jsonData.users.splice(userIndex, 1);
+      
+            fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (writeErr) => {
+              if (writeErr) {
+                return res.status(500).send('Error writing file');
+              }
+              res.json('User deleted');
+            });
+          } catch (parseErr) {
+            res.status(500).send('Error parsing JSON data');
+          }
+        });
+      })
 
 
 // Start the server
