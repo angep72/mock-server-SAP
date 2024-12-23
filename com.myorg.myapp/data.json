@@ -1,15 +1,11 @@
 {
   "users": [
     {
-      "id": 5,
+      "id": "545",
       "firstName": "James",
-      "lastName": "Miller",
       "email": "j.miller@email.com",
-      "age": 39,
       "city": "Seattle",
-      "occupation": "Product Manager",
-      "joinDate": "2023-02-28",
-      "isActive": true
+      "occupation": "Product Manager"
     },
     {
       "id": 6,

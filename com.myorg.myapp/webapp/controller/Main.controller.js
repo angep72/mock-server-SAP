@@ -144,7 +144,7 @@ sap.ui.define([
 		},
 		onSaveUpdatedUser: function () {
 			const oView = this.getView();
-		
+		    const pressedID = this._selectedUserId;
 			const oEditedSupplier = {
 				id: oView.byId("updating-id").getValue(),
 				firstName: oView.byId("updating-name").getValue(),
@@ -157,7 +157,7 @@ sap.ui.define([
 			 console.log('Updating user:', oEditedSupplier);
 		
 			// Send the request to the server
-			fetch(`http://localhost:3000/data/${oEditedSupplier.id}`,{
+			fetch(`http://localhost:3000/data/${pressedID}`,{
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json"
