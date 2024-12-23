@@ -71,6 +71,32 @@ app.get('/data/:id', (req, res) => {
   });
 
 
+  //Route to post another user 
+    app.post('/add-user', (req, res) => {
+        const newUser = req.body;
+        const filePath = path.join(__dirname, 'data.json');
+        fs.readFile(filePath, 'utf8', (err, data) => {
+          if (err) {
+            return res.status(500).send('Error reading file');
+          }
+      
+          try {
+            const jsonData = JSON.parse(data);
+            const lastId = jsonData.users[jsonData.users.length - 1].id;
+            newUser.id = lastId + 1;
+            jsonData.users.push(newUser);
+      
+            fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), (writeErr) => {
+              if (writeErr) {
+                return res.status(500).send('Error writing file');
+              }
+              res.status(201).json(newUser);
+            });
+          } catch (parseErr) {
+            res.status(500).send('Error parsing JSON data');
+          }
+        })
+    })
 
 // Start the server
 app.listen(PORT, () => {

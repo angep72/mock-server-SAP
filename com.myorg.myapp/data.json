@@ -215,6 +215,17 @@
       "occupation": "Operations Manager",
       "joinDate": "2024-04-15",
       "isActive": true
+    },
+    {
+      "id": 21,
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "email": "m.brown@email.com",
+      "age": 45,
+      "city": "Chicago",
+      "occupation": "Data Analyst",
+      "joinDate": "2023-01-10",
+      "isActive": false
     }
   ]
 }
