@@ -22,7 +22,6 @@ sap.ui.define([
 		//This function is used to save the a new functionaliy of the user 
 		onSaveNewUser: function () {
 			const ID = this.byId("creating-id").getValue();
-			console.log(ID)
 			const Name = this.byId("creating-name").getValue();
 			console.log(Name);
 			const Email = this.byId("creating-email").getValue();
