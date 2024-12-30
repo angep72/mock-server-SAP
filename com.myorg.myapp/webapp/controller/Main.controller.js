@@ -26,7 +26,6 @@ sap.ui.define([
 			const Email = this.byId("creating-email").getValue();
 			const City=this.byId("creating-city").getValue();
 			const Occupation=this.byId("creating-occupation").getValue();
-			console.log(Occupation);
 			
             fetch("http://localhost:3000/add-user", {
 				method: "POST",
