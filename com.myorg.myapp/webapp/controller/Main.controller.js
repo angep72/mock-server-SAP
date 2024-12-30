@@ -15,7 +15,7 @@ sap.ui.define([
 		onAdd: function () {
 			this.byId("creating-dialog").open();
 		},
-
+                //This function is for closing creating a new dialog
 		onCancelNewUser: function () {
 			this.byId("creating-dialog").close();
 		},
