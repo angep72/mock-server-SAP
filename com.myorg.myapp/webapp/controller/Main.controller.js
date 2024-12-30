@@ -70,7 +70,7 @@ sap.ui.define([
 			this.byId("updating-occupation").setValue(userData.occupation);
 			dialog.open();
 		},
-
+                //This function is used to close the updating dialog
 		onCancelUpdatedUser: function () {
 			this.byId("updatingDialog").close();
 		},
