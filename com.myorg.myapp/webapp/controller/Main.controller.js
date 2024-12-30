@@ -11,7 +11,7 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 			this._originalData = oModel.getProperty("/users");
 		},
-
+                //This function is or opening the add new user dialog
 		onAdd: function () {
 			this.byId("creating-dialog").open();
 		},
