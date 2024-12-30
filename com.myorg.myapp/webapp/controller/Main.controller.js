@@ -26,7 +26,7 @@ sap.ui.define([
 			const Email = this.byId("creating-email").getValue();
 			const City=this.byId("creating-city").getValue();
 			const Occupation=this.byId("creating-occupation").getValue();
-			
+		//This is the post end-point which is used to add a new data on the data	
             fetch("http://localhost:3000/add-user", {
 				method: "POST",
 				headers: {
