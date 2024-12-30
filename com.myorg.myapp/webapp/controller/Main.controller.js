@@ -19,6 +19,7 @@ sap.ui.define([
 		onCancelNewUser: function () {
 			this.byId("creating-dialog").close();
 		},
+		//This function is used to save the a new functionaliy of the user 
 		onSaveNewUser: function () {
 			const ID = this.byId("creating-id").getValue();
 			console.log(ID)
