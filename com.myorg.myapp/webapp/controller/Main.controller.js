@@ -25,7 +25,6 @@ sap.ui.define([
 			const Name = this.byId("creating-name").getValue();
 			const Email = this.byId("creating-email").getValue();
 			const City=this.byId("creating-city").getValue();
-			console.log(City);
 			const Occupation=this.byId("creating-occupation").getValue();
 			console.log(Occupation);
 			
