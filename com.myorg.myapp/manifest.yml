@@ -5,6 +5,6 @@ applications:
       - https://github.com/cloudfoundry/staticfile-buildpack
     path: ./dist  # Path to your built files
     routes:
-      - route: com-myorg-myapp.cfapps.ap21.hana.ondemand.com  # Use one of the available domains
+      - route: com-myorg-myapp.cfapps.us10-001.hana.ondemand.com  # Correct subdomain of the available domain
     env:
-      UI5_REPO: "https://github.com/Kevin-gram/sapUi5_Crud"
+      UI5_REPO: "https://github.com/angep72/mock-server-SAP"
