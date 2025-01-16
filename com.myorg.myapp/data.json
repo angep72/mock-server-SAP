@@ -8,15 +8,11 @@
       "occupation": "Product Manager"
     },
     {
-      "id": 6,
+      "id": "68",
       "firstName": "Lisa",
-      "lastName": "Anderson",
       "email": "l.anderson@email.com",
-      "age": 27,
-      "city": "Austin",
-      "occupation": "Content Writer",
-      "joinDate": "2023-09-15",
-      "isActive": true
+      "city": "Austiny",
+      "occupation": "Content Writery"
     },
     {
       "id": 7,
@@ -41,15 +37,11 @@
       "isActive": false
     },
     {
-      "id": 9,
+      "id": "134",
       "firstName": "David",
-      "lastName": "Martinez",
       "email": "d.martinez@email.com",
-      "age": 36,
       "city": "Miami",
-      "occupation": "Financial Analyst",
-      "joinDate": "2023-08-22",
-      "isActive": true
+      "occupation": "Financial Analyst"
     },
     {
       "id": 10,
@@ -185,6 +177,111 @@
       "email": "umunyanaange885@gmail.com",
       "city": "Kigali",
       "occupation": "nurse"
+    },
+    {
+      "id": 29,
+      "firstName": "cookies",
+      "email": "umunyanaange885@gmail.com",
+      "city": "Kigali",
+      "occupation": "nurses "
+    },
+    {
+      "id": 30,
+      "firstName": "cookies",
+      "email": "umunyanaange885@gmail.com",
+      "city": "Kigali",
+      "occupation": "nurses "
+    },
+    {
+      "id": 31,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 32,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 33,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 34,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 35,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 36,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 37,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 38,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 39,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 40,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 41,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 42,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
+    },
+    {
+      "id": 43,
+      "firstName": "John Doe",
+      "email": "g@alustudent.com",
+      "city": "New York",
+      "occupation": "Doctor"
     }
   ]
 }
