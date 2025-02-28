@@ -42,7 +42,7 @@
 
                 <columns>
                     <Column>
-                        <Text text="Users ID" />
+                        <Text text="Users IDs" />
                     </Column>
                     <Column>
                         <Text text="UserNamess" />
