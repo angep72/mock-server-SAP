@@ -45,7 +45,7 @@
                         <Text text="Users ID" />
                     </Column>
                     <Column>
-                        <Text text="UserName" />
+                        <Text text="UserNames" />
                     </Column>
                     <Column>
                         <Text text="Email" />
