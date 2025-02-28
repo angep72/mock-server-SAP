@@ -1,0 +1,46 @@
+ID: com.myorg.myapp
+version: 3.1.0
+
+modules:
+  - name: ui
+    type: html5
+    path: ui
+    parameters:
+      memory: 256M
+    requires:
+      - name: my-backend
+    provides:
+      - name: ui-service
+    build-parameters:
+      builder: none
+      npm: true
+      requires:
+        - name: ui-resource
+  - name: my-backend
+    type: nodejs
+    path: backend
+    parameters:
+      memory: 512M
+    requires:
+      - name: my-db
+    provides:
+      - name: api-service
+
+resources:
+  - name: my-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      memory: 128M
+  - name: ui-resource
+    type: com.sap.xs.oauth2
+    parameters:
+      url: "https://oauth2.example.com"
+  - name: my-destination
+    type: destination
+    parameters:
+      url: "https://api.example.com"
+
+dependencies:
+  - name: ui
+    dependencies:
+      - name: my-backend
