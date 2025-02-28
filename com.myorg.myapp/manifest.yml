@@ -3,7 +3,7 @@ applications:
     memory: 512M
     buildpacks:
       - https://github.com/cloudfoundry/staticfile-buildpack
-    path: ./dist  # Path to your built files
+    path: ./dist  # Path to your built filess
     routes:
       - route: com-myorg-myapp.cfapps.us10-001.hana.ondemand.com  # Correct subdomain of the available domain
     env:
